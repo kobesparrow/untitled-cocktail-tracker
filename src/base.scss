@@ -1,3 +1,16 @@
+@import './components/Cocktails/Cocktails';
+@import './components/CocktailTile/CocktailTile';
+
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
 h1 {
   color: purple;
 }
