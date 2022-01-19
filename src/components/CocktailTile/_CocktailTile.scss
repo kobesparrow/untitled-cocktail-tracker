@@ -2,4 +2,9 @@
   border: 1px solid #000000;
   margin: 1rem;
   padding: 1rem;
+  cursor: pointer; 
+  
+    &:hover {
+      background-color: pink;
+    }
 }

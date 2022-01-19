@@ -8,7 +8,8 @@ class Cocktails extends Component {
 
 
     this.state = {
-      randomizedCocktails: []
+      randomizedCocktails: [],
+      toDisplay: ''
     }
   }
 
