@@ -9,6 +9,7 @@ class MainDisplay extends Component {
 
     this.state = {
       randomizedCocktails: [],
+      detail: {},
       toDisplay: 'loading'
     }
   }
@@ -19,12 +20,19 @@ class MainDisplay extends Component {
     this.setState({ randomizedCocktails, toDisplay: 'menu' })
   }
 
+  displayDetail(detail) {
+    console.log('test', detail)
+    // this.setState({ toDisplay: 'detail', detail })
+  }
+
   onDisplay = () => {
     switch (this.state.toDisplay) {
       case 'loading':
         return <div>Loading</div>
       case 'menu':
-        return <Menu randomCocktails ={ this.state.randomizedCocktails }/>
+        return <Menu 
+                  randomCocktails ={ this.state.randomizedCocktails }
+                  displayDetail = { this.displayDetail } />
       default:
         break;
     }
