@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CocktailTile from '../CocktailTile/CocktailTile';
+import Menu from '../Menu/Menu';
 import cocktailData from '../../practiceDataSet';
 
 class Cocktails extends Component {
@@ -31,6 +32,7 @@ class Cocktails extends Component {
 
 
     return <section className="cocktail-display">
+      <Menu />
       { this.displayRandomCocktails() }
       </section>
   }
