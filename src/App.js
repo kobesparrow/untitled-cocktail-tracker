@@ -1,5 +1,5 @@
 import './base.scss';
-import Cocktails from './components/Cocktails/Cocktails';
+import MainDisplay from './components/MainDisplay/MainDisplay';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
         <h1>Untitled Cocktail Project</h1>
       </header>
       <section>
-        <Cocktails />
+        <MainDisplay />
       </section>
     </div>
   );

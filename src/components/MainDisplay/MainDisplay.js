@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import cocktailData from '../../practiceDataSet';
 
-class Cocktails extends Component {
+class MainDisplay extends Component {
   constructor() {
     super()
 
@@ -38,4 +38,4 @@ class Cocktails extends Component {
   }
 }
 
-export default Cocktails;
+export default MainDisplay;
