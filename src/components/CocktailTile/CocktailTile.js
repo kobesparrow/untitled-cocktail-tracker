@@ -6,11 +6,7 @@ import Rocks from '../../images/rocks.png'
 import Shaker from '../../images/shaker.png'
 
 
-const CocktailTile = ({cocktail, cocktail: {cocktailName, glassware}}) => {
-
-  const testFunc = () => {
-    console.log(glassware)
-  }
+const CocktailTile = ({cocktail: {cocktailName, glassware}}) => {
 
   const returnGlassware = (glassware) => {
     switch (glassware) {
@@ -28,11 +24,9 @@ const CocktailTile = ({cocktail, cocktail: {cocktailName, glassware}}) => {
     return glassware
   }
  
-  return <article onClick={ testFunc } className="cocktail-tile">
+  return <article className="cocktail-tile">
       <img src={ returnGlassware(glassware) } />
-      {/* { testFunc() } */}
       <p>{ cocktailName }</p>
-      {/* <button onClick={ testFunc }>Test Button</button> */}
     </article>
 }
 

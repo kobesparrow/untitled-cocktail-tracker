@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CocktailTile from '../CocktailTile/CocktailTile';
 import Menu from '../Menu/Menu';
 import cocktailData from '../../practiceDataSet';
 
@@ -20,20 +19,11 @@ class Cocktails extends Component {
     this.setState({ randomizedCocktails })
   }
 
-  displayRandomCocktails() {
-    return this.state.randomizedCocktails.map(cocktail => {
-      console.log('map test', cocktail)
-      return <CocktailTile cocktail={ cocktail } />
-    })
-  }
-
-
   render() {
 
 
     return <section className="cocktail-display">
-      <Menu />
-      { this.displayRandomCocktails() }
+      <Menu  randomCocktails ={ this.state.randomizedCocktails }/>
       </section>
   }
 }
