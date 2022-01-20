@@ -9,8 +9,9 @@ class Menu extends Component {
 
   displayRandomCocktails() {
     return this.props.randomCocktails.map(cocktail => {
-      console.log('map test', cocktail)
-      return <CocktailTile cocktail={ cocktail } />
+      return <CocktailTile 
+                cocktail={ cocktail }
+                displayDetail={ this.props.displayDetail } />
     })
   }
 
