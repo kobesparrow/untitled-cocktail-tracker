@@ -1,27 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const CocktailDetail = ({ cocktail }) => {
-
-  const testFunc = () => {
-    console.log('test', cocktail)
+class CocktailDetail extends Component {
+  constructor() {
+    super()
   }
 
+  displayIngredients = () => {
+    //this if statement and extra variable will be removed when normal data flow resumes
+    //return the mapped array directly
 
+    let ingredientDisplay
 
-  return <article className="cocktail-detail">
-      <div className="left-column">
-        <p>This is the picture of the glass</p>
-        <p>This is the description</p>
-        <div>These are the ingredients</div>
-      </div>
-      <div className="right-column">
-        <p>{ cocktail.cocktailName }</p>
-        <p>This is the rating</p>
-        <p>This is the date last poured for the user</p>
-        <p>This is the total number drank</p>
-        <p>These are tasting notes</p>
-      </div>
-    </article> 
+    if (this.props.cocktail.ingredients) {
+      ingredientDisplay = this.props.cocktail.ingredients.map(ingredient => {
+        return <div>{ ingredient.ingredientName }</div>
+      })
+    }
+
+    return ingredientDisplay
+  }
+
+  render() {
+    return <article className="cocktail-detail">
+        <div className="left-column">
+          <p>This is the picture of the glass</p>
+          <p>This is the description</p>
+          <div>{ this.displayIngredients() }</div>
+        </div>
+        <div className="right-column">
+          <p>{ this.props.cocktail.cocktailName }</p>
+          <p>This is the rating</p>
+          <p>This is the date last poured for the user</p>
+          <p>This is the total number drank</p>
+          <p>These are tasting notes</p>
+          <button>Mix</button>
+        </div>
+      </article> 
+  } 
 }
 
 export default CocktailDetail;
