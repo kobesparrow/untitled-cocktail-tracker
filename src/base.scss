@@ -1,7 +1,8 @@
-@import './components/CocktailDetail/CocktailDetail';
+@import './components/CocktailDisplay/CocktailDisplay';
 @import './components/CocktailTile/CocktailTile';
 @import './components/MainDisplay/MainDisplay';
 @import './components/Menu/Menu';
+@import './components/UserDisplay/UserDisplay';
 
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
 
@@ -15,4 +16,12 @@ body {
 
 h1 {
   color: purple;
+}
+
+.header {
+  font-size: 2.5rem;
+}
+
+.subhead {
+  font-size: 1.5rem;
 }

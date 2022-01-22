@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import CocktailDisplay from '../CocktailDisplay/CocktailDisplay';
 import Menu from '../Menu/Menu';
-import CocktailDetail from '../CocktailDetail/CocktailDetail';
-import cocktailData from '../../data/practiceDataSet';
+import UserDisplay from '../UserDisplay/UserDisplay';
+import cocktailData from '../../data/cocktailDataSet';
 
 class MainDisplay extends Component {
   constructor() {
@@ -11,46 +12,60 @@ class MainDisplay extends Component {
     this.state = {
       randomizedCocktails: [],
       detail: {},
-      toDisplay: 'cocktail detail'
+      cocktailDisplay: 'cocktail detail',
+      userDisplay: 'user'
     }
   }
 
   componentDidMount() {
-    let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
-    let randomizedCocktails = shuffledCocktails.slice(0, 4)
-    // this.setState({ randomizedCocktails, toDisplay: 'menu' })
+    // let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
+    // let randomizedCocktails = shuffledCocktails.slice(0, 4)
+    // this.setState({ randomizedCocktails, currentDisplay: 'menu' })
     // this.displayDetail('Tequila Sunrise')
     let theCocktail = cocktailData[0];
-    this.setState({ randomizedCocktails, detail: theCocktail})
+    // this.setState({ randomizedCocktails, detail: theCocktail})
+    this.setState({ detail: theCocktail})
   }
 
   displayDetail = (cocktailName) => {
     // cocktailName = 'Tequila Sunrise'
     let detail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
-    this.setState({ toDisplay: 'cocktail detail', detail })
+    this.setState({ currentDisplay: 'cocktail detail', detail })
 
   }
 
-  onDisplay = () => {
-    switch (this.state.toDisplay) {
+  // cocktailDisplay = () => {
+  //   switch (this.state.cocktailDisplay) {
+  //     case 'loading':
+  //       return <div>Loading</div>
+  //     case 'menu':
+  //       return <Menu 
+  //                 randomCocktails ={ this.state.randomizedCocktails }
+  //                 displayDetail = { this.displayDetail } />
+  //     case 'cocktail detail':
+  //       return <CocktailDisplay 
+  //                 cocktail = { this.state.detail } />
+  //     default:
+  //       return <p>there was an error</p>
+  //   }
+  // }
+
+  userDisplay = () => {
+    switch (this.state.userDisplay) {
       case 'loading':
-        return <div>Loading</div>
-      case 'menu':
-        return <Menu 
-                  randomCocktails ={ this.state.randomizedCocktails }
-                  displayDetail = { this.displayDetail } />
-      case 'cocktail detail':
-        return <CocktailDetail 
-                  cocktail = { this.state.detail } />
+        return <div>loading</div>
+      case 'user':
+        return <UserDisplay />
       default:
-        return <p>there was an error</p>
+        return <div>there was an error</div>
     }
   }
 
   render() {
 
     return <section className="main-display">
-      { this.onDisplay() }
+      <CocktailDisplay />
+      { this.userDisplay() }
       </section>
   }
 }
