@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Menu from '../Menu/Menu';
 import Bottle from '../../images/bottle.png';
 
 
@@ -29,28 +30,44 @@ class CocktailDisplay extends Component {
     return ingredientDisplay
   }
 
-  onDisplay = () => {
-    switch (this.currentDisplay) {
+  // onDisplay = () => {
+  //   switch (this.currentDisplay) {
+  //     case 'loading':
+  //       return <div>loading</div>
+  //     case 'information':
+  //       return <article>         
+  //             <div className="left-column">
+  //             <p>This is the picture of the glass</p>
+  //             <p>This is the description</p>
+  //             <div className="small-cocktail-ingredients">{ this.displayIngredients() }</div>
+  //           </div>
+  //           <div className="right-column">
+  //             <p>{ this.props.cocktail.cocktailName }</p>
+  //             <p>This is the rating</p>
+  //             <p>This is the date last poured for the user</p>
+  //             <p>This is the total number drank</p>
+  //             <p>These are tasting notes</p>
+  //             <button>Mix</button>
+  //           </div>
+  //         </article>
+  //     default:
+  //       break;
+  //   }
+  // }
+
+  cocktailDisplay = () => {
+    switch (this.state.currentDisplay) {
       case 'loading':
-        return <div>loading</div>
-      case 'information':
-        return <article>         
-              <div className="left-column">
-              <p>This is the picture of the glass</p>
-              <p>This is the description</p>
-              <div className="small-cocktail-ingredients">{ this.displayIngredients() }</div>
-            </div>
-            <div className="right-column">
-              <p>{ this.props.cocktail.cocktailName }</p>
-              <p>This is the rating</p>
-              <p>This is the date last poured for the user</p>
-              <p>This is the total number drank</p>
-              <p>These are tasting notes</p>
-              <button>Mix</button>
-            </div>
-          </article>
+        return <div>Loading</div>
+      case 'menu':
+        return <Menu 
+                  randomCocktails ={ this.state.randomizedCocktails }
+                  displayDetail = { this.displayDetail } />
+      case 'cocktail detail':
+        return <CocktailDisplay 
+                  cocktail = { this.state.detail } />
       default:
-        break;
+        return <p>there was an error</p>
     }
   }
 

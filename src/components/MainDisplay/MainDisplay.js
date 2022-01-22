@@ -34,21 +34,21 @@ class MainDisplay extends Component {
 
   }
 
-  cocktailDisplay = () => {
-    switch (this.state.cocktailDisplay) {
-      case 'loading':
-        return <div>Loading</div>
-      case 'menu':
-        return <Menu 
-                  randomCocktails ={ this.state.randomizedCocktails }
-                  displayDetail = { this.displayDetail } />
-      case 'cocktail detail':
-        return <CocktailDisplay 
-                  cocktail = { this.state.detail } />
-      default:
-        return <p>there was an error</p>
-    }
-  }
+  // cocktailDisplay = () => {
+  //   switch (this.state.cocktailDisplay) {
+  //     case 'loading':
+  //       return <div>Loading</div>
+  //     case 'menu':
+  //       return <Menu 
+  //                 randomCocktails ={ this.state.randomizedCocktails }
+  //                 displayDetail = { this.displayDetail } />
+  //     case 'cocktail detail':
+  //       return <CocktailDisplay 
+  //                 cocktail = { this.state.detail } />
+  //     default:
+  //       return <p>there was an error</p>
+  //   }
+  // }
 
   userDisplay = () => {
     switch (this.state.userDisplay) {
@@ -58,14 +58,13 @@ class MainDisplay extends Component {
         return <UserDisplay />
       default:
         return <div>there was an error</div>
-        break;
     }
   }
 
   render() {
 
     return <section className="main-display">
-      { this.cocktailDisplay() }
+      <CocktailDisplay />
       { this.userDisplay() }
       </section>
   }

@@ -1,5 +1,5 @@
 const userData = [
-  { userName: 'Din',
+  { userName: 'Din Djarin',
     cocktails: [
       {cocktailName: 'cocktail name',
       rating: 0,
@@ -9,9 +9,9 @@ const userData = [
         date: 'date',
         displayDate: ''
         //specific date consumed details - alterations, suggested alterations, etc.
-  }]}
-  ]}
-]
+        }]}
+    ]}
+  ]
 
 
 export default userData;
