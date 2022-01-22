@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Mando from '../../images/mando-helmet.png';
 
 class UserDisplay extends Component {
   constructor() {
@@ -8,9 +9,10 @@ class UserDisplay extends Component {
 
   render() {
     return <article className="user-display">
-        <p>This is the user name</p>
-        <p></p>
-        <p></p>
+        <img src={ Mando } className="user-avatar" />
+        <p className="subhead">This is the user name</p>
+        <p>Cocktails poured:</p>
+        <p>Percent complete:</p>
         <p>Recent Drink History:</p>
       </article>
   }
