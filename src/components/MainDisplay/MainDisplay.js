@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
-import cocktailData from '../../practiceDataSet';
+import CocktailDetail from '../CocktailDetail/CocktailDetail';
+import cocktailData from '../../data/practiceDataSet';
 
 class MainDisplay extends Component {
   constructor() {
@@ -10,19 +11,24 @@ class MainDisplay extends Component {
     this.state = {
       randomizedCocktails: [],
       detail: {},
-      toDisplay: 'loading'
+      toDisplay: 'cocktail detail'
     }
   }
 
   componentDidMount() {
     let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
     let randomizedCocktails = shuffledCocktails.slice(0, 4)
-    this.setState({ randomizedCocktails, toDisplay: 'menu' })
+    // this.setState({ randomizedCocktails, toDisplay: 'menu' })
+    // this.displayDetail('Tequila Sunrise')
+    let theCocktail = cocktailData[0];
+    this.setState({ randomizedCocktails, detail: theCocktail})
   }
 
-  displayDetail(detail) {
-    console.log('test', detail)
-    // this.setState({ toDisplay: 'detail', detail })
+  displayDetail = (cocktailName) => {
+    // cocktailName = 'Tequila Sunrise'
+    let detail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
+    this.setState({ toDisplay: 'cocktail detail', detail })
+
   }
 
   onDisplay = () => {
@@ -33,14 +39,17 @@ class MainDisplay extends Component {
         return <Menu 
                   randomCocktails ={ this.state.randomizedCocktails }
                   displayDetail = { this.displayDetail } />
+      case 'cocktail detail':
+        return <CocktailDetail 
+                  cocktail = { this.state.detail } />
       default:
-        break;
+        return <p>there was an error</p>
     }
   }
 
   render() {
 
-    return <section className="cocktail-display">
+    return <section className="main-display">
       { this.onDisplay() }
       </section>
   }
