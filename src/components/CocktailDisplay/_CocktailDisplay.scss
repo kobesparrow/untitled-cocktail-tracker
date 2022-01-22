@@ -11,9 +11,13 @@
 .cocktail-display--right-column {
   border: 1px solid green;
   margin: 1rem;
+  // display: flex;
+  // justify-content: flex-start;
+  // flex-direction: column;
+  text-align: left;
 }
 
-.small-cocktail-ingredients {
+.horizontal-cocktail-ingredients {
   display: flex;
   flex-direction: row;
   

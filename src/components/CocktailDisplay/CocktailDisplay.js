@@ -59,10 +59,10 @@ class CocktailDisplay extends Component {
         <div className="cocktail-display--left-column">
           <p>This is the picture of the glass</p>
           <p>This is the description</p>
-          <div className="small-cocktail-ingredients">{ this.displayIngredients() }</div>
+          <div className="horizontal-cocktail-ingredients">{ this.displayIngredients() }</div>
         </div>
         <div className="cocktail-display--right-column">
-          <p>{ this.props.cocktail.cocktailName }</p>
+          <p className="header">{ this.props.cocktail.cocktailName }</p>
           <p>This is the rating</p>
           <p>This is the date last poured for the user</p>
           <p>This is the total number drank</p>

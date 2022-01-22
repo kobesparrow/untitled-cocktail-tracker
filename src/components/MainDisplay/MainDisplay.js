@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import CocktailDisplay from '../CocktailDisplay/CocktailDisplay';
-import cocktailData from '../../data/practiceDataSet';
+import cocktailData from '../../data/cocktailDataSet';
 
 class MainDisplay extends Component {
   constructor() {
@@ -16,12 +16,13 @@ class MainDisplay extends Component {
   }
 
   componentDidMount() {
-    let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
-    let randomizedCocktails = shuffledCocktails.slice(0, 4)
+    // let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
+    // let randomizedCocktails = shuffledCocktails.slice(0, 4)
     // this.setState({ randomizedCocktails, currentDisplay: 'menu' })
     // this.displayDetail('Tequila Sunrise')
     let theCocktail = cocktailData[0];
-    this.setState({ randomizedCocktails, detail: theCocktail})
+    // this.setState({ randomizedCocktails, detail: theCocktail})
+    this.setState({ detail: theCocktail})
   }
 
   displayDetail = (cocktailName) => {
