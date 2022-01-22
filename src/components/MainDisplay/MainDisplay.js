@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
-import CocktailDetail from '../CocktailDetail/CocktailDetail';
+import CocktailDisplay from '../CocktailDisplay/CocktailDisplay';
 import cocktailData from '../../data/practiceDataSet';
 
 class MainDisplay extends Component {
@@ -40,7 +40,7 @@ class MainDisplay extends Component {
                   randomCocktails ={ this.state.randomizedCocktails }
                   displayDetail = { this.displayDetail } />
       case 'cocktail detail':
-        return <CocktailDetail 
+        return <CocktailDisplay 
                   cocktail = { this.state.detail } />
       default:
         return <p>there was an error</p>

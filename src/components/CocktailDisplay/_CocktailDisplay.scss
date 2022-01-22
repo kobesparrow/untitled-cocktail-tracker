@@ -1,14 +1,14 @@
-.cocktail-detail {
+.cocktail-display {
   display: flex;
   flex-direction: row;
 }
 
-.left-column {
+.cocktail-display--left-column {
   border: 1px solid red;
   margin: 1rem;
 }
 
-.right-column {
+.cocktail-display--right-column {
   border: 1px solid green;
   margin: 1rem;
 }

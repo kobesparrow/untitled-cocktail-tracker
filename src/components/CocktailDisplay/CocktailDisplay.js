@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Bottle from '../../images/bottle.png';
 
 
-class CocktailDetail extends Component {
+class CocktailDisplay extends Component {
   constructor() {
     super()
 
@@ -19,7 +19,7 @@ class CocktailDetail extends Component {
 
     if (this.props.cocktail.ingredients) {
       ingredientDisplay = this.props.cocktail.ingredients.map(ingredient => {
-        return <div>
+        return <div className="">
                 <img src={ Bottle } />
                 <p>{ ingredient.ingredientName }</p>
               </div>
@@ -55,23 +55,22 @@ class CocktailDetail extends Component {
   }
 
   render() {
-    return <article className="cocktail-detail">
-      { this.onDisplay }
-        {/* <div className="left-column">
+    return <article className="cocktail-display">
+        <div className="cocktail-display--left-column">
           <p>This is the picture of the glass</p>
           <p>This is the description</p>
           <div className="small-cocktail-ingredients">{ this.displayIngredients() }</div>
         </div>
-        <div className="right-column">
+        <div className="cocktail-display--right-column">
           <p>{ this.props.cocktail.cocktailName }</p>
           <p>This is the rating</p>
           <p>This is the date last poured for the user</p>
           <p>This is the total number drank</p>
           <p>These are tasting notes</p>
           <button>Mix</button>
-        </div> */}
+        </div>
       </article> 
   } 
 }
 
-export default CocktailDetail;
+export default CocktailDisplay;
