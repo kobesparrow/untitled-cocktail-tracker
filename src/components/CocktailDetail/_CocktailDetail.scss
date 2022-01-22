@@ -1,0 +1,14 @@
+.cocktail-detail {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-column {
+  border: 1px solid red;
+  margin: 1rem;
+}
+
+.right-column {
+  border: 1px solid green;
+  margin: 1rem;
+}
