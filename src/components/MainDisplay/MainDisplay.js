@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Menu from '../Menu/Menu';
 import CocktailDisplay from '../CocktailDisplay/CocktailDisplay';
+import Menu from '../Menu/Menu';
+import UserDisplay from '../UserDisplay/UserDisplay';
 import cocktailData from '../../data/cocktailDataSet';
 
 class MainDisplay extends Component {
@@ -11,7 +12,8 @@ class MainDisplay extends Component {
     this.state = {
       randomizedCocktails: [],
       detail: {},
-      currentDisplay: 'cocktail detail'
+      cocktailDisplay: 'cocktail detail',
+      userDisplay: 'user'
     }
   }
 
@@ -32,8 +34,8 @@ class MainDisplay extends Component {
 
   }
 
-  onDisplay = () => {
-    switch (this.state.currentDisplay) {
+  cocktailDisplay = () => {
+    switch (this.state.cocktailDisplay) {
       case 'loading':
         return <div>Loading</div>
       case 'menu':
@@ -48,10 +50,23 @@ class MainDisplay extends Component {
     }
   }
 
+  userDisplay = () => {
+    switch (this.state.userDisplay) {
+      case 'loading':
+        return <div>loading</div>
+      case 'user':
+        return <UserDisplay />
+      default:
+        return <div>there was an error</div>
+        break;
+    }
+  }
+
   render() {
 
     return <section className="main-display">
-      { this.onDisplay() }
+      { this.cocktailDisplay() }
+      { this.userDisplay() }
       </section>
   }
 }
