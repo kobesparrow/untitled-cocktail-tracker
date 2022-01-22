@@ -12,3 +12,18 @@
   border: 1px solid green;
   margin: 1rem;
 }
+
+.small-cocktail-ingredients {
+  display: flex;
+  flex-direction: row;
+  
+  div {
+    border: 1px solid orange;
+    margin: .5rem;
+    padding: .3rem;
+  }
+
+  img {
+    width: 6rem;
+  }
+}

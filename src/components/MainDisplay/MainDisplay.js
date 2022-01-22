@@ -11,14 +11,14 @@ class MainDisplay extends Component {
     this.state = {
       randomizedCocktails: [],
       detail: {},
-      toDisplay: 'cocktail detail'
+      currentDisplay: 'cocktail detail'
     }
   }
 
   componentDidMount() {
     let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
     let randomizedCocktails = shuffledCocktails.slice(0, 4)
-    // this.setState({ randomizedCocktails, toDisplay: 'menu' })
+    // this.setState({ randomizedCocktails, currentDisplay: 'menu' })
     // this.displayDetail('Tequila Sunrise')
     let theCocktail = cocktailData[0];
     this.setState({ randomizedCocktails, detail: theCocktail})
@@ -27,12 +27,12 @@ class MainDisplay extends Component {
   displayDetail = (cocktailName) => {
     // cocktailName = 'Tequila Sunrise'
     let detail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
-    this.setState({ toDisplay: 'cocktail detail', detail })
+    this.setState({ currentDisplay: 'cocktail detail', detail })
 
   }
 
   onDisplay = () => {
-    switch (this.state.toDisplay) {
+    switch (this.state.currentDisplay) {
       case 'loading':
         return <div>Loading</div>
       case 'menu':
