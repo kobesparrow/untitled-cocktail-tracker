@@ -31,7 +31,7 @@ class MainDisplay extends Component {
     // cocktailName = 'Tequila Sunrise'
     let detail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
     this.setState({ currentDisplay: 'cocktail detail', detail })
-
+    console.log('display Detail', detail)
   }
 
   // cocktailDisplay = () => {
@@ -66,7 +66,8 @@ class MainDisplay extends Component {
     return <section className="main-display">
       <CocktailDisplay 
         currentDisplay={ this.state.cocktailDisplay } 
-        randomCocktails ={ this.state.randomizedCocktails } />
+        randomizedCocktails ={ this.state.randomizedCocktails }
+        displayDetail = { this.displayDetail } />
       { this.userDisplay() }
       </section>
   }

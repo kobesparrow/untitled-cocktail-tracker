@@ -60,10 +60,9 @@ class CocktailDisplay extends Component {
       case 'loading':
         return <div>Loading</div>
       case 'menu':
-        return <div>this is the menu component</div>
-        // return <Menu 
-        //           randomCocktails ={ this.state.randomizedCocktails }
-        //           displayDetail = { this.displayDetail } />
+        return <Menu 
+                  randomCocktails ={ this.props.randomizedCocktails }
+                  displayDetail = { this.props.displayDetail } />
       case 'cocktail detail':
         return <div>this is the cocktail detail</div>
         // return <CocktailDisplay 
@@ -74,13 +73,13 @@ class CocktailDisplay extends Component {
   }
   
   testFunc = () => {
-    console.log('test', this.props.currentDisplay)
+    // console.log('test', this.props.randomizedCocktails)
   }
 
   render() {
     return <article className="cocktail-display">
       { this.cocktailDisplay(this.props.currentDisplay) }
-      {/* { this.testFunc() } */}
+      { this.testFunc() }
         {/* <div className="cocktail-display--left-column">
           <p>This is the picture of the glass</p>
           <p>This is the description</p>
