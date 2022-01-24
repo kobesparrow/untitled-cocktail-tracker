@@ -55,25 +55,33 @@ class CocktailDisplay extends Component {
   //   }
   // }
 
-  cocktailDisplay = () => {
-    switch (this.state.currentDisplay) {
+  cocktailDisplay = (toDisplay) => {
+    switch (toDisplay) {
       case 'loading':
         return <div>Loading</div>
       case 'menu':
-        return <Menu 
-                  randomCocktails ={ this.state.randomizedCocktails }
-                  displayDetail = { this.displayDetail } />
+        return <div>this is the menu component</div>
+        // return <Menu 
+        //           randomCocktails ={ this.state.randomizedCocktails }
+        //           displayDetail = { this.displayDetail } />
       case 'cocktail detail':
-        return <CocktailDisplay 
-                  cocktail = { this.state.detail } />
+        return <div>this is the cocktail detail</div>
+        // return <CocktailDisplay 
+        //           cocktail = { this.state.detail } />
       default:
         return <p>there was an error</p>
     }
   }
+  
+  testFunc = () => {
+    console.log('test', this.props.currentDisplay)
+  }
 
   render() {
     return <article className="cocktail-display">
-        <div className="cocktail-display--left-column">
+      { this.cocktailDisplay(this.props.currentDisplay) }
+      {/* { this.testFunc() } */}
+        {/* <div className="cocktail-display--left-column">
           <p>This is the picture of the glass</p>
           <p>This is the description</p>
           <div className="horizontal-cocktail-ingredients">{ this.displayIngredients() }</div>
@@ -85,7 +93,7 @@ class CocktailDisplay extends Component {
           <p>This is the total number drank</p>
           <p>These are tasting notes</p>
           <button>Mix</button>
-        </div>
+        </div> */}
       </article> 
   } 
 }
