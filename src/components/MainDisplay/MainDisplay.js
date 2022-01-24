@@ -11,7 +11,7 @@ class MainDisplay extends Component {
 
     this.state = {
       randomizedCocktails: [],
-      detail: {},
+      cocktail: {},
       cocktailDisplay: 'loading',
       userDisplay: 'user'
     }
@@ -28,10 +28,8 @@ class MainDisplay extends Component {
   }
 
   displayDetail = (cocktailName) => {
-    // cocktailName = 'Tequila Sunrise'
-    let detail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
-    this.setState({ currentDisplay: 'cocktail detail', detail })
-    console.log('display Detail', detail)
+    let cocktail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
+    this.setState({ cocktailDisplay: 'cocktail', cocktail })
   }
 
   // cocktailDisplay = () => {
@@ -66,8 +64,9 @@ class MainDisplay extends Component {
     return <section className="main-display">
       <CocktailDisplay 
         currentDisplay={ this.state.cocktailDisplay } 
-        randomizedCocktails ={ this.state.randomizedCocktails }
-        displayDetail = { this.displayDetail } />
+        randomizedCocktails={ this.state.randomizedCocktails }
+        cocktail={ this.state.cocktail }
+        displayDetail={ this.displayDetail } />
       { this.userDisplay() }
       </section>
   }

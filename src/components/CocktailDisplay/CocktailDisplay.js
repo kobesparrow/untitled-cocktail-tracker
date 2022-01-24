@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
+import Cocktail from '../Cocktail/Cocktail';
 import Bottle from '../../images/bottle.png';
 
 
@@ -30,31 +31,6 @@ class CocktailDisplay extends Component {
     return ingredientDisplay
   }
 
-  // onDisplay = () => {
-  //   switch (this.currentDisplay) {
-  //     case 'loading':
-  //       return <div>loading</div>
-  //     case 'information':
-  //       return <article>         
-  //             <div className="left-column">
-  //             <p>This is the picture of the glass</p>
-  //             <p>This is the description</p>
-  //             <div className="small-cocktail-ingredients">{ this.displayIngredients() }</div>
-  //           </div>
-  //           <div className="right-column">
-  //             <p>{ this.props.cocktail.cocktailName }</p>
-  //             <p>This is the rating</p>
-  //             <p>This is the date last poured for the user</p>
-  //             <p>This is the total number drank</p>
-  //             <p>These are tasting notes</p>
-  //             <button>Mix</button>
-  //           </div>
-  //         </article>
-  //     default:
-  //       break;
-  //   }
-  // }
-
   cocktailDisplay = (toDisplay) => {
     switch (toDisplay) {
       case 'loading':
@@ -63,8 +39,9 @@ class CocktailDisplay extends Component {
         return <Menu 
                   randomCocktails ={ this.props.randomizedCocktails }
                   displayDetail = { this.props.displayDetail } />
-      case 'cocktail detail':
-        return <div>this is the cocktail detail</div>
+      case 'cocktail':
+        return <Cocktail 
+                  cocktail={ this.props.cocktail } />
         // return <CocktailDisplay 
         //           cocktail = { this.state.detail } />
       default:
@@ -73,7 +50,7 @@ class CocktailDisplay extends Component {
   }
   
   testFunc = () => {
-    // console.log('test', this.props.randomizedCocktails)
+    console.log('testFunc', this.props.cocktail)
   }
 
   render() {
