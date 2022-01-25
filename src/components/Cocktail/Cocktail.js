@@ -57,6 +57,7 @@ class Cocktail extends Component {
   }
  
   render() {
+    
     return <article className="cocktail">         
               <div className="cocktail-display--left-column">
               <img src={ CocktailGlass } />
