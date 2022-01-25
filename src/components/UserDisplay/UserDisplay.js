@@ -12,8 +12,6 @@ class UserDisplay extends Component {
     console.log(userData[0].userName)
   }
 
-
-
   render() {
     return <article className="user-display">
         <img src={ Mando } className="user-avatar" />

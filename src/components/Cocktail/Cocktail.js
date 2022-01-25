@@ -6,10 +6,10 @@ import CocktailGlass from '../../images/martini.png'
 class Cocktail extends Component {
   constructor() {
     super()
-  }
 
-  testFunc = () => {
-    console.log('cocktail component test: ', this.props.cocktail)
+    this.state = {
+      display: 'main',
+    }
   }
 
   displayIngredients = () => {
@@ -20,22 +20,52 @@ class Cocktail extends Component {
             </div>
     })
   }
+
+  displayHelper = (display) => {
+    this.setState({ display })
+  }
+
+  leftColumnDisplay = () => {
+    switch (this.state.display) {
+      case 'main':
+        return <div className="horizontal-cocktail-ingredients">{ this.displayIngredients() }</div>
+      case 'mix':
+        return null
+      default:
+        break;
+    }
+  }
+
+  rightColumnDisplay = () => {
+    switch (this.state.display) {
+      case 'loading':
+        return <div>loading</div>
+      case 'main':
+        return <div>
+            <p>This is the rating</p>
+            <p>This is the date last poured for the user</p>
+            <p>This is the total number drank</p>
+            <p>These are tasting notes</p>
+            <p>Buttons giving options for alternative mixes</p>
+            <button onClick={ () => this.displayHelper('mix') }>Mix</button>
+          </div>
+      case 'mix':
+        return <div>Mix Cocktail</div>
+      default:
+        break;
+    }
+  }
  
   render() {
     return <article className="cocktail">         
               <div className="cocktail-display--left-column">
               <img src={ CocktailGlass } />
               <p>This is the description</p>
-              <div className="horizontal-cocktail-ingredients">{ this.displayIngredients() }</div>
+              { this.leftColumnDisplay() }
             </div>
             <div className="cocktail-display--right-column">
-              <p>{ this.props.cocktail.cocktailName }</p>
-              { this.testFunc() }
-              <p>This is the rating</p>
-              <p>This is the date last poured for the user</p>
-              <p>This is the total number drank</p>
-              <p>These are tasting notes</p>
-              <button>Mix</button>
+              <p className="header">{ this.props.cocktail.cocktailName }</p>
+              { this.rightColumnDisplay() }
             </div>
           </article>
   }

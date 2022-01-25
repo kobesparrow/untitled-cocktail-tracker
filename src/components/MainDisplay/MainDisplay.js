@@ -23,6 +23,7 @@ class MainDisplay extends Component {
   }
 
   displayDetail = (cocktailName) => {
+    //can be made dynamic later to also show liquor detail
     let cocktail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
     this.setState({ cocktailDisplay: 'cocktail', cocktail })
   }
