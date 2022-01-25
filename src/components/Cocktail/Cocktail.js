@@ -13,21 +13,12 @@ class Cocktail extends Component {
   }
 
   displayIngredients = () => {
-    //this if statement and extra variable will be removed when normal data flow resumes
-    //return the mapped array directly
-
-    let ingredientDisplay
-
-    if (this.props.cocktail.ingredients) {
-      ingredientDisplay = this.props.cocktail.ingredients.map(ingredient => {
-        return <div className="">
-                <img src={ Bottle } />
-                <p>{ ingredient.ingredientName }</p>
-              </div>
-      })
-    }
-
-    return ingredientDisplay
+    return this.props.cocktail.ingredients.map(ingredient => {
+      return <div className="">
+              <img src={ Bottle } />
+              <p>{ ingredient.ingredientName }</p>
+            </div>
+    })
   }
  
   render() {
