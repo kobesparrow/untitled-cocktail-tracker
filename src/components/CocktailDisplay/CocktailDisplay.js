@@ -8,7 +8,6 @@ class CocktailDisplay extends Component {
     super()
 
     this.state = {
-      currentDisplay: 'loading'
     }
   }
 
@@ -27,15 +26,10 @@ class CocktailDisplay extends Component {
         return <p>there was an error</p>
     }
   }
-  
-  testFunc = () => {
-    console.log('testFunc', this.props.cocktail)
-  }
 
   render() {
     return <article className="cocktail-display">
       { this.cocktailDisplay(this.props.currentDisplay) }
-      { this.testFunc() }
       </article> 
   } 
 }
