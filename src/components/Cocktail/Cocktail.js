@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bottle from '../../images/bottle.png';
+import CocktailGlass from '../../images/martini.png'
 
 
 class Cocktail extends Component {
@@ -30,13 +31,13 @@ class Cocktail extends Component {
   }
  
   render() {
-    return <article>         
-              <div className="left-column">
-              <p>This is the picture of the glass</p>
+    return <article className="cocktail">         
+              <div className="cocktail-display--left-column">
+              <img src={ CocktailGlass } />
               <p>This is the description</p>
-              <div className="small-cocktail-ingredients">{ this.displayIngredients() }</div>
+              <div className="horizontal-cocktail-ingredients">{ this.displayIngredients() }</div>
             </div>
-            <div className="right-column">
+            <div className="cocktail-display--right-column">
               <p>{ this.props.cocktail.cocktailName }</p>
               { this.testFunc() }
               <p>This is the rating</p>
