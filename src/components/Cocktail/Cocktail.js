@@ -37,10 +37,18 @@ class Cocktail extends Component {
     });
   }
 
+  displayInstructions = () => {
+    return this.props.cocktail.instructions.map(instruction => {
+      return <p>• { instruction }</p>
+    })
+  }
+ 
   leftColumnDisplay = () => {
     switch (this.state.display) {
       case 'main':
-        return <div className="horizontal-cocktail-ingredients">{ this.horizontalDisplayIngredients() }</div>
+        return <div className="horizontal-cocktail-ingredients">
+              { this.horizontalDisplayIngredients() }
+            </div>
       case 'mix':
         return null
       default:
@@ -62,7 +70,11 @@ class Cocktail extends Component {
             <button onClick={ () => this.displayHelper('mix') }>Mix</button>
           </div>
       case 'mix':
-        return <div className="vertical-cocktail-ingredients">{ this.verticalDisplayIngredients() }</div>
+        return <div className="vertical-cocktail-ingredients">
+            { this.verticalDisplayIngredients() }
+            { this.displayInstructions() }
+            <button>Pour</button>
+          </div>
       default:
         break;
     };
