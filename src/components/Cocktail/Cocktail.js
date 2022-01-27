@@ -50,9 +50,13 @@ class Cocktail extends Component {
     let starCounter = counter
     let stars = [];
 
-    if (starCounter > 0) {
+    for (let i = 0; i < counter; i++) {
       stars.push(<img src={ StarOutline } />)
     }
+
+    // if (starCounter > 0) {
+    //   stars.push(<img src={ StarOutline } />)
+    // }
 
     return stars;
   }
