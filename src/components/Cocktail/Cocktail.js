@@ -46,21 +46,18 @@ class Cocktail extends Component {
   }
 
   starDisplay = (counter) => {
-    console.log('test');
-    let starCounter = counter
     let stars = [];
 
     for (let i = 0; i < counter; i++) {
-      stars.push(<img src={ StarOutline } />)
+      stars.push(<img src={ StarOutline } className="rating-star" id={i+1} />)
     }
-
-    // if (starCounter > 0) {
-    //   stars.push(<img src={ StarOutline } />)
-    // }
-
     return stars;
   }
- 
+
+  starHover = () => {
+    
+  }
+  
   leftColumnDisplay = () => {
     switch (this.state.display) {
       case 'main':
@@ -95,7 +92,6 @@ class Cocktail extends Component {
           </div>
       case 'pour':
         return <section>
-          <p>TEST</p>
           <p>rating:</p>
           <div>
             { this.starDisplay(5) }
