@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Bottle from '../../images/bottle.png';
-import CocktailGlass from '../../images/martini.png'
+import CocktailGlass from '../../images/martini.png';
+import YellowStar from '../../images/star-color.png';
+import StarOutline from '../../images/star-outline.png';
 
 
 class Cocktail extends Component {
@@ -9,6 +11,7 @@ class Cocktail extends Component {
 
     this.state = {
       display: 'main',
+      stars: 5
     }
   }
 
@@ -42,7 +45,27 @@ class Cocktail extends Component {
       return <p>• { instruction }</p>
     })
   }
- 
+
+  starDisplay = (counter) => {
+    let stars = [];
+
+    for (let i = 0; i < counter; i++) {
+      stars.push(<img src={ StarOutline } className="rating-star" id={i+1} onMouseEnter={ (event) => this.starHover(event) } />)
+    }
+
+
+    return stars;
+
+    //use map, and within that map was an if (number of yellow stars, assign this image source )
+
+    
+  }
+
+  starHover = (event) => {
+    console.log('star', event.target.id)
+    this.setState({ yellowStars: event.target.id })
+  }
+  
   leftColumnDisplay = () => {
     switch (this.state.display) {
       case 'main':
@@ -73,10 +96,17 @@ class Cocktail extends Component {
         return <div className="vertical-cocktail-ingredients">
             { this.verticalDisplayIngredients() }
             { this.displayInstructions() }
-            <button>Pour</button>
+            <button onClick={ () => this.displayHelper('pour') }>Pour</button>
           </div>
+      case 'pour':
+        return <section>
+          <p>rating:</p>
+          <div>
+            { this.starDisplay(this.state.stars) }
+          </div>
+          </section>  
       default:
-        break;
+        return <div>an error occurred</div>
     };
   }
  
