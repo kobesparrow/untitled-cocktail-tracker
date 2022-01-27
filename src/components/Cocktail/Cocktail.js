@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Bottle from '../../images/bottle.png';
-import CocktailGlass from '../../images/martini.png'
+import CocktailGlass from '../../images/martini.png';
+import YellowStar from '../../images/star-color.png';
+import StarOutline from '../../images/star-outline.png';
 
 
 class Cocktail extends Component {
@@ -42,6 +44,18 @@ class Cocktail extends Component {
       return <p>• { instruction }</p>
     })
   }
+
+  starDisplay = (counter) => {
+    console.log('test');
+    let starCounter = counter
+    let stars = [];
+
+    if (starCounter > 0) {
+      stars.push(<img src={ StarOutline } />)
+    }
+
+    return stars;
+  }
  
   leftColumnDisplay = () => {
     switch (this.state.display) {
@@ -73,10 +87,18 @@ class Cocktail extends Component {
         return <div className="vertical-cocktail-ingredients">
             { this.verticalDisplayIngredients() }
             { this.displayInstructions() }
-            <button>Pour</button>
+            <button onClick={ () => this.displayHelper('pour') }>Pour</button>
           </div>
+      case 'pour':
+        return <section>
+          <p>TEST</p>
+          <p>rating:</p>
+          <div>
+            { this.starDisplay(5) }
+          </div>
+          </section>  
       default:
-        break;
+        return <div>an error occurred</div>
     };
   }
  
