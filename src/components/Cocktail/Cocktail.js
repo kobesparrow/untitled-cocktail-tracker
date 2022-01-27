@@ -11,6 +11,7 @@ class Cocktail extends Component {
 
     this.state = {
       display: 'main',
+      stars: 5
     }
   }
 
@@ -49,13 +50,20 @@ class Cocktail extends Component {
     let stars = [];
 
     for (let i = 0; i < counter; i++) {
-      stars.push(<img src={ StarOutline } className="rating-star" id={i+1} />)
+      stars.push(<img src={ StarOutline } className="rating-star" id={i+1} onMouseEnter={ (event) => this.starHover(event) } />)
     }
+
+
     return stars;
+
+    //use map, and within that map was an if (number of yellow stars, assign this image source )
+
+    
   }
 
-  starHover = () => {
-    
+  starHover = (event) => {
+    console.log('star', event.target.id)
+    this.setState({ yellowStars: event.target.id })
   }
   
   leftColumnDisplay = () => {
@@ -94,7 +102,7 @@ class Cocktail extends Component {
         return <section>
           <p>rating:</p>
           <div>
-            { this.starDisplay(5) }
+            { this.starDisplay(this.state.stars) }
           </div>
           </section>  
       default:
