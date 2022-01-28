@@ -1,8 +1,8 @@
 import React from 'react';
 import Flute from '../../images/flute.png';
-import Highball from '../../images/highball.png'
-import Martini from '../../images/martini.png'
-import Rocks from '../../images/rocks.png'
+import Highball from '../../images/highball.png';
+import Martini from '../../images/martini.png';
+import Rocks from '../../images/rocks.png';
 import Shaker from '../../images/shaker.png'
 
 

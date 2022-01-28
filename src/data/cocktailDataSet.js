@@ -1,3 +1,8 @@
+import coupe from '../images/martini.png';
+import flute from '../images/flute.png';
+import highball from '../images/highball.png';
+import rocks from '../images/rocks.png';
+
 const cocktailData = [
   { id: 1,
     cocktailName: 'Aviation',
@@ -11,6 +16,7 @@ const cocktailData = [
     garnish: ['brandied cherry'],
     instructions: ['shake ingredients with ice', 'strain into glass', 'garnish'],
     glassware: 'coupe',
+    glasswareSource: `${coupe}`,
     averageRating: 0 },
   { id: 2,
     cocktailName: 'Negroni',
@@ -23,6 +29,7 @@ const cocktailData = [
     garnish: ['orange peel'],
     instructions: ['shake ingredients with ice', 'strain into glass', 'garnish'],
     glassware: 'rocks',
+    glasswareSource: `${rocks}`,
     averageRating: 0 },
   { id: 3,
     cocktailName: 'Sidecar',
@@ -35,6 +42,7 @@ const cocktailData = [
     garnish: ['orange twist', 'sugar rim'],
     instructions: ['coat rim with sugar and set aside (optional)', 'shake ingredients with ice', 'strain into glass', 'garnish'],
     glassware: 'coupe',
+    glasswareSource: `${coupe}`,
     averageRating: 0 },
   { id: 4,
     cocktailName: 'French 75',
@@ -48,6 +56,7 @@ const cocktailData = [
     garnish: ['lemon twist'],
     instructions: ['coat rim with sugar and set aside (optional)', 'shake ingredients with ice', 'strain into glass', 'garnish'],
     glassware: 'flute',
+    glasswareSource: `${flute}`,
     averageRating: 0 },
   { id: 5,
     cocktailName: 'Sea Breze',
@@ -60,6 +69,7 @@ const cocktailData = [
     garnish: ['lime wheel'],
     instructions: ['add ingredients to glass with ice and stir', 'garnish'],
     glassware: 'highball',
+    glasswareSource: `${highball}`,
     averageRating: 0 },
   { id: 6,
     cocktailName: 'Tequila Sunrise',
@@ -72,6 +82,7 @@ const cocktailData = [
     garnish: ['orange slice', 'cherry'],
     instructions: ['add tequila then orange juice to chilled highball filled with ice', 'top with grenadine', 'garnish'],
     glassware: 'highball',
+    glasswareSource: `${highball}`,
     averageRating: 0 },
   { id: 7,
     cocktailName: 'Bee\'s Knees',
@@ -84,6 +95,7 @@ const cocktailData = [
     garnish: ['lemon twist'],
     instructions: ['shake ingredients with ice', 'strain into glass', 'garnish'],
     glassware: 'coupe',
+    glasswareSource: `${coupe}`,
     averageRating: 0 },
   { id: 8,
     cocktailName: 'Paper Plane',
@@ -97,6 +109,7 @@ const cocktailData = [
     garnish: ['lemon twist'],
     instructions: ['shake ingredients with ice', 'strain into glass', 'garnish'],
     glassware: 'coupe',
+    glasswareSource: `${coupe}`,
     averageRating: 0 },
   { id: 9,
     cocktailName: 'Tipperary',
@@ -110,6 +123,7 @@ const cocktailData = [
     garnish: ['orange twist'],
     instructions: ['add to mixing glass with ice and stir', 'strain into glass', 'garnish'],
     glassware: 'coupe',
+    glasswareSource: `${coupe}`,
     averageRating: 0 }
   ]
 

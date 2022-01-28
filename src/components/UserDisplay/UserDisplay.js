@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import userData from '../../data/userDataSet';
 import cocktailData from '../../data/cocktailDataSet';
 import Mando from '../../images/mando-helmet.png';
+import flute from '../../images/flute.png';
+import highball from '../../images/highball.png';
+import coupe from '../../images/martini.png';
+import rocks from '../../images/rocks.png';
 
 class UserDisplay extends Component {
   constructor() {
@@ -29,13 +33,10 @@ class UserDisplay extends Component {
 
 
     let bigAssReduce = userData[0].cocktails.reduce((acc, cocktail) => {
-      //get date consumed from userData
-      //user cocktail name from userData to get cocktail info from cocktailData
-      //combine those two into a <div>
-      //push that div into the acc
-
       let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
       let recentDrinkDiv = <div>
+          {/* <img src={ drinkData.glassware } /> */}
+          <img src={ drinkData.glasswareSource } />
           <p>{ drinkData.cocktailName }</p>
           <p>Date Consumed: { cocktail.mostRecent }</p>
         </div>
