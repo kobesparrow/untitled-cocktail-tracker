@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import userData from '../../data/userDataSet';
+import cocktailData from '../../data/cocktailDataSet';
 import Mando from '../../images/mando-helmet.png';
+import flute from '../../images/flute.png';
+import highball from '../../images/highball.png';
+import coupe from '../../images/martini.png';
+import rocks from '../../images/rocks.png';
 
 class UserDisplay extends Component {
   constructor() {
@@ -9,7 +14,25 @@ class UserDisplay extends Component {
   }
 
   totalCocktailsPoured = () => {
-    console.log(userData[0].userName)
+    // console.log(userData[0].userName)
+  }
+
+  displayUserDrinkHistory = () => {
+    let bigAssReduce = userData[0].cocktails.reduce((acc, cocktail) => {
+      let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
+      let recentDrinkDiv = <div className="recent-drink-display">
+          {/* <img src={ drinkData.glassware } /> */}
+          <img src={ drinkData.glasswareSource } />
+          <div>
+            <p>{ drinkData.cocktailName }</p>
+            <p>Last Consumed: { cocktail.mostRecent }</p>  
+          </div>
+        </div>
+      acc.push(recentDrinkDiv)
+      return acc;
+    }, [])
+
+    return bigAssReduce
   }
 
   render() {
@@ -19,6 +42,7 @@ class UserDisplay extends Component {
         <p>Cocktails poured: {this.totalCocktailsPoured()}</p>
         <p>Percent complete:</p>
         <p>Recent Drink History:</p>
+        <div>{ this.displayUserDrinkHistory() }</div>
       </article>
   }
 }
