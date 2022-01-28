@@ -18,27 +18,15 @@ class UserDisplay extends Component {
   }
 
   displayUserDrinkHistory = () => {
-    let recentDrinks = [];
-    
-    userData[0].cocktails.forEach(cocktail => {
-      recentDrinks.push(cocktailData.find(data => data.cocktailName === cocktail.cocktailName))
-    })
-
-    // return recentDrinks.map(drink => {
-    //   return <div>
-    //       <p></p>
-    //       <p></p>
-    //     </div>
-    // })
-
-
     let bigAssReduce = userData[0].cocktails.reduce((acc, cocktail) => {
       let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
-      let recentDrinkDiv = <div>
+      let recentDrinkDiv = <div className="recent-drink-display">
           {/* <img src={ drinkData.glassware } /> */}
           <img src={ drinkData.glasswareSource } />
-          <p>{ drinkData.cocktailName }</p>
-          <p>Date Consumed: { cocktail.mostRecent }</p>
+          <div>
+            <p>{ drinkData.cocktailName }</p>
+            <p>Last Consumed: { cocktail.mostRecent }</p>  
+          </div>
         </div>
       acc.push(recentDrinkDiv)
       return acc;
@@ -54,7 +42,7 @@ class UserDisplay extends Component {
         <p>Cocktails poured: {this.totalCocktailsPoured()}</p>
         <p>Percent complete:</p>
         <p>Recent Drink History:</p>
-        { this.displayUserDrinkHistory() }
+        <div>{ this.displayUserDrinkHistory() }</div>
       </article>
   }
 }

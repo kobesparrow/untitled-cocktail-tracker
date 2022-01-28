@@ -5,3 +5,21 @@
 .user-avatar {
   width: 33%;
 }
+
+.recent-drink-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid red;
+
+  img {
+    // width: 3rem;
+    height: 4rem;
+    margin: .3rem .8rem;
+  }
+
+  div {
+    // border: 1px solid black;
+    text-align: left;
+  }
+}
