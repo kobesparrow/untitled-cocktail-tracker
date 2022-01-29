@@ -82,8 +82,8 @@ class Cocktail extends Component {
  
   render() {
     
-    return <article className="cocktail">         
-              <div className="cocktail-display--left-column">
+    return <article className="cocktail"> 
+              <div className="cocktail-display--left-column">   
               <img src={ this.props.cocktail.glasswareSource } />
               <p>This is the description</p>
               { this.leftColumnDisplay() }

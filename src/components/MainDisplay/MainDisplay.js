@@ -27,19 +27,9 @@ class MainDisplay extends Component {
     this.setState({ cocktailDisplay: 'cocktail', cocktail })
   }
 
-  // userDisplay = () => {
-  //   switch (this.state.userDisplay) {
-  //     case 'loading':
-  //       return <div>loading</div>
-  //     case 'user':
-  //       return <UserDisplay />
-  //     default:
-  //       return <div>there was an error</div>
-  //   }
-  // }
-
   render() {
     return <section className="main-display">
+      <button className="back-button">Back</button>
       <CocktailDisplay 
         currentDisplay={ this.state.cocktailDisplay } 
         randomizedCocktails={ this.state.randomizedCocktails }

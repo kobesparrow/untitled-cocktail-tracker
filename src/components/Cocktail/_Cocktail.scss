@@ -3,6 +3,11 @@
   flex-direction: row;
 }
 
+.back-button {
+  cursor: pointer;
+  margin: 1rem 1rem;
+}
+
 .cocktail-display--left-column {
   border: 1px solid red;
   margin: 1rem;
