@@ -27,9 +27,14 @@ class MainDisplay extends Component {
     this.setState({ cocktailDisplay: 'cocktail', cocktail })
   }
 
+  backButton = () => {
+    this.setState({ cocktailDisplay: 'menu' })
+    console.log('test back')
+  }
+
   render() {
     return <section className="main-display">
-      <button className="back-button">Back</button>
+      <button className="back-button" onClick={ this.backButton }>Back</button>
       <CocktailDisplay 
         currentDisplay={ this.state.cocktailDisplay } 
         randomizedCocktails={ this.state.randomizedCocktails }
