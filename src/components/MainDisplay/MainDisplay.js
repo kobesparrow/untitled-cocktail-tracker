@@ -33,8 +33,15 @@ class MainDisplay extends Component {
   }
 
   render() {
+
+    let backButton
+    
+    if (this.state.cocktailDisplay === 'cocktail') {
+      backButton = <button className="back-button" onClick={ this.backButton }>Back</button>
+    }
+
     return <section className="main-display">
-      <button className="back-button" onClick={ this.backButton }>Back</button>
+      { backButton }
       <CocktailDisplay 
         currentDisplay={ this.state.cocktailDisplay } 
         randomizedCocktails={ this.state.randomizedCocktails }

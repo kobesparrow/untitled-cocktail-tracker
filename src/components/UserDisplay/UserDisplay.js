@@ -43,9 +43,9 @@ class UserDisplay extends Component {
     return <article className="user-display">
         <img src={ Mando } className="user-avatar" />
         <p className="subhead">{ userData[0].userName }</p>
-        <p>Cocktails poured: {this.totalCocktailsPoured()}</p>
+        <p>Cocktails poured: { this.totalCocktailsPoured() }</p>
         <p>Percent complete:</p>
-        <p>Recent Drink History:</p>
+        <p>Recent Drink History</p>
         <div>{ this.displayUserDrinkHistory() }</div>
       </article>
   }
