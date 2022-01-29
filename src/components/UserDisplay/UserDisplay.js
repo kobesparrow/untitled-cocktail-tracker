@@ -14,7 +14,7 @@ class UserDisplay extends Component {
   }
 
   percentComplete = () => {
-    let percentage = ((userData[0].cocktails.length / 77) * 100).toFixed(1);
+    let percentage = ((this.props.currentUser.cocktails.length / 77) * 100).toFixed(1);
     return percentage.toString() + `%`
   }
 
@@ -23,7 +23,7 @@ class UserDisplay extends Component {
   // }
 
   displayUserDrinkHistory = () => {
-    let bigAssReduce = userData[0].cocktails.reduce((acc, cocktail) => {
+    let bigAssReduce = this.props.currentUser.cocktails.reduce((acc, cocktail) => {
       let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
       let recentDrinkDiv = <button className="recent-drink-display" onClick={ () => this.props.displayDetail(cocktail.cocktailName) }>
           <img src={ drinkData.glasswareSource } />
@@ -52,7 +52,7 @@ class UserDisplay extends Component {
         return <article className="user-display">
             <img src={ Mando } className="user-avatar" />
             <p className="subhead">{ this.props.currentUser.userName }</p>
-            <p>Cocktails poured: { userData[0].cocktails.length }</p>
+            <p>Cocktails poured: { this.props.currentUser.cocktails.length }</p>
             <p>Percent complete: { this.percentComplete() } </p>
             <p>Recent Drink History</p>
             <div>{ this.displayUserDrinkHistory() }</div>

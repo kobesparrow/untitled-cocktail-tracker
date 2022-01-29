@@ -69,6 +69,17 @@ const userData = [
       //   displayDate: 'January 11, 2020'
       //   //specific date consumed details - alterations, suggested alterations, etc.
       //   }]}
+      },
+      { cocktailName: 'Bee\'s Knees',
+      rating: 0,
+      notes: 'notes on cocktail',
+      mostRecent: 'April 29, 2020'
+      // datesConsumed: [{
+      //   //unshift into array so displaying array is always reverse chronologically
+      //   date: 'date',
+      //   displayDate: 'January 11, 2020'
+      //   //specific date consumed details - alterations, suggested alterations, etc.
+      //   }]}
       }
     ]}
   ]
