@@ -43,6 +43,12 @@
 }
 
 .vertical-ingredient-tile {
+  border: 1px solid purple;
   display: flex;
   margin: 1rem;
+  align-items: center;
+
+  img {
+    height: 4rem;;
+  }
 }
