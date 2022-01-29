@@ -13,8 +13,11 @@ class UserDisplay extends Component {
   
   }
 
-  totalCocktailsPoured = () => {
-    // console.log(userData[0].userName)
+  percentComplete = () => {
+    let percentage = ((userData[0].cocktails.length / 77) * 100).toFixed(1);
+    return percentage.toString() + `%`
+    // console.log('testNum', testNum)
+    // console.log('result', result)
   }
 
   testFunc = (data) => {
@@ -43,8 +46,8 @@ class UserDisplay extends Component {
     return <article className="user-display">
         <img src={ Mando } className="user-avatar" />
         <p className="subhead">{ userData[0].userName }</p>
-        <p>Cocktails poured: { this.totalCocktailsPoured() }</p>
-        <p>Percent complete:</p>
+        <p>Cocktails poured: { userData[0].cocktails.length }</p>
+        <p>Percent complete: { this.percentComplete() } </p>
         <p>Recent Drink History</p>
         <div>{ this.displayUserDrinkHistory() }</div>
       </article>
