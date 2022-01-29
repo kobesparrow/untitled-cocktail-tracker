@@ -45,7 +45,8 @@ class MainDisplay extends Component {
         randomizedCocktails={ this.state.randomizedCocktails }
         cocktail={ this.state.cocktail }
         displayDetail={ this.displayDetail } />
-      <UserDisplay />
+      <UserDisplay 
+        displayDetail={ this.displayDetail } />
       </section>
   }
 }
