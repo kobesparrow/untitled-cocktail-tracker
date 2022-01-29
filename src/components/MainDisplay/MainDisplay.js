@@ -11,8 +11,7 @@ class MainDisplay extends Component {
     this.state = {
       randomizedCocktails: [],
       cocktail: {},
-      cocktailDisplay: 'loading',
-      userDisplay: 'user'
+      cocktailDisplay: 'loading'
     }
   }
 
@@ -24,20 +23,20 @@ class MainDisplay extends Component {
 
   displayDetail = (cocktailName) => {
     //can be made dynamic later to also show liquor detail
-    let cocktail = this.state.randomizedCocktails.find(cocktail => cocktail.cocktailName === cocktailName)
+    let cocktail = cocktailData.find(cocktail => cocktail.cocktailName === cocktailName)
     this.setState({ cocktailDisplay: 'cocktail', cocktail })
   }
 
-  userDisplay = () => {
-    switch (this.state.userDisplay) {
-      case 'loading':
-        return <div>loading</div>
-      case 'user':
-        return <UserDisplay />
-      default:
-        return <div>there was an error</div>
-    }
-  }
+  // userDisplay = () => {
+  //   switch (this.state.userDisplay) {
+  //     case 'loading':
+  //       return <div>loading</div>
+  //     case 'user':
+  //       return <UserDisplay />
+  //     default:
+  //       return <div>there was an error</div>
+  //   }
+  // }
 
   render() {
     return <section className="main-display">
@@ -46,7 +45,8 @@ class MainDisplay extends Component {
         randomizedCocktails={ this.state.randomizedCocktails }
         cocktail={ this.state.cocktail }
         displayDetail={ this.displayDetail } />
-      { this.userDisplay() }
+      <UserDisplay 
+        displayDetail={ this.displayDetail } />
       </section>
   }
 }

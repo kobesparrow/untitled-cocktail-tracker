@@ -17,17 +17,21 @@ class UserDisplay extends Component {
     // console.log(userData[0].userName)
   }
 
+  testFunc = (data) => {
+    console.log('test', data)
+  }
+
   displayUserDrinkHistory = () => {
     let bigAssReduce = userData[0].cocktails.reduce((acc, cocktail) => {
       let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
-      let recentDrinkDiv = <div className="recent-drink-display">
+      let recentDrinkDiv = <button className="recent-drink-display" onClick={ () => this.props.displayDetail(cocktail.cocktailName) }>
           {/* <img src={ drinkData.glassware } /> */}
           <img src={ drinkData.glasswareSource } />
           <div>
             <p>{ drinkData.cocktailName }</p>
             <p>Last Consumed: { cocktail.mostRecent }</p>  
           </div>
-        </div>
+        </button>
       acc.push(recentDrinkDiv)
       return acc;
     }, [])
