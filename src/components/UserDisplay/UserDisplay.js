@@ -16,19 +16,16 @@ class UserDisplay extends Component {
   percentComplete = () => {
     let percentage = ((userData[0].cocktails.length / 77) * 100).toFixed(1);
     return percentage.toString() + `%`
-    // console.log('testNum', testNum)
-    // console.log('result', result)
   }
 
-  testFunc = (data) => {
-    console.log('test', data)
-  }
+  // testFunc = (data) => {
+  //   console.log('test', data)
+  // }
 
   displayUserDrinkHistory = () => {
     let bigAssReduce = userData[0].cocktails.reduce((acc, cocktail) => {
       let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
       let recentDrinkDiv = <button className="recent-drink-display" onClick={ () => this.props.displayDetail(cocktail.cocktailName) }>
-          {/* <img src={ drinkData.glassware } /> */}
           <img src={ drinkData.glasswareSource } />
           <div>
             <p>{ drinkData.cocktailName }</p>
@@ -41,16 +38,35 @@ class UserDisplay extends Component {
 
     return bigAssReduce
   }
+ 
+  userDisplay = (toDisplay) => {
+    switch (toDisplay) {
+      case 'loading':
+        return <div>Loading</div>
+      case 'login':
+        return <div className="user-login">
+            <button id="Din Djarin" onClick={ (event) => this.props.displayUser(event.target.id) }>Mando</button>
+            <button id="Grogu" onClick={ (event) => this.props.displayUser(event.target.id) }>Baby Yoda</button>
+          </div>
+      case 'user':
+        return <article className="user-display">
+            <img src={ Mando } className="user-avatar" />
+            <p className="subhead">{ this.props.currentUser.userName }</p>
+            <p>Cocktails poured: { userData[0].cocktails.length }</p>
+            <p>Percent complete: { this.percentComplete() } </p>
+            <p>Recent Drink History</p>
+            <div>{ this.displayUserDrinkHistory() }</div>
+          </article>
+      default:
+        return <p>there was an error</p>
+    }
+  }
+
 
   render() {
-    return <article className="user-display">
-        <img src={ Mando } className="user-avatar" />
-        <p className="subhead">{ userData[0].userName }</p>
-        <p>Cocktails poured: { userData[0].cocktails.length }</p>
-        <p>Percent complete: { this.percentComplete() } </p>
-        <p>Recent Drink History</p>
-        <div>{ this.displayUserDrinkHistory() }</div>
-      </article>
+    return <section className="user-section">
+        { this.userDisplay(this.props.currentDisplay) }
+      </section>
   }
 }
 

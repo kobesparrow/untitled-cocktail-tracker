@@ -3,6 +3,7 @@ import CocktailDisplay from '../CocktailDisplay/CocktailDisplay';
 import Menu from '../Menu/Menu';
 import UserDisplay from '../UserDisplay/UserDisplay';
 import cocktailData from '../../data/cocktailDataSet';
+import userData from '../../data/userDataSet';
 
 class MainDisplay extends Component {
   constructor() {
@@ -10,8 +11,10 @@ class MainDisplay extends Component {
 
     this.state = {
       randomizedCocktails: [],
+      cocktailDisplay: 'loading',
       cocktail: {},
-      cocktailDisplay: 'loading'
+      userDisplay: 'login',
+      currentUser: {}
     }
   }
 
@@ -27,13 +30,18 @@ class MainDisplay extends Component {
     this.setState({ cocktailDisplay: 'cocktail', cocktail })
   }
 
+  displayUser = (userName) => {
+    let currentUser = userData.find(user => user.userName === userName)
+    this.setState({ userDisplay: 'user', currentUser })
+    console.log('test', currentUser)
+  } 
+
   backButton = () => {
     this.setState({ cocktailDisplay: 'menu' })
     console.log('test back')
   }
 
   render() {
-
     let backButton
     
     if (this.state.cocktailDisplay === 'cocktail') {
@@ -47,7 +55,10 @@ class MainDisplay extends Component {
         randomizedCocktails={ this.state.randomizedCocktails }
         cocktail={ this.state.cocktail }
         displayDetail={ this.displayDetail } />
-      <UserDisplay 
+      <UserDisplay
+        currentUser={ this.state.currentUser } 
+        currentDisplay={ this.state.userDisplay }
+        displayUser={ this.displayUser }
         displayDetail={ this.displayDetail } />
       </section>
   }
