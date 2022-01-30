@@ -3,12 +3,14 @@ import Bottle from '../../images/bottle.png';
 import Star from '../../images/star.png';
 
 
+
 class Cocktail extends Component {
   constructor() {
     super()
 
     this.state = {
       display: 'main',
+      stars: 5
     }
   }
 
@@ -42,7 +44,27 @@ class Cocktail extends Component {
       return <p>• { instruction }</p>
     })
   }
- 
+
+  starDisplay = (counter) => {
+    let stars = [];
+
+    for (let i = 0; i < counter; i++) {
+      stars.push(<img src={ StarOutline } className="rating-star" id={i+1} onMouseEnter={ (event) => this.starHover(event) } />)
+    }
+
+
+    return stars;
+
+    //use map, and within that map was an if (number of yellow stars, assign this image source )
+
+    
+  }
+
+  starHover = (event) => {
+    console.log('star', event.target.id)
+    this.setState({ yellowStars: event.target.id })
+  }
+  
   leftColumnDisplay = () => {
     switch (this.state.display) {
       case 'main':
@@ -96,7 +118,7 @@ class Cocktail extends Component {
             </div>
           </div>    
       default:
-        break;
+        return <div>an error occurred</div>
     };
   }
  
