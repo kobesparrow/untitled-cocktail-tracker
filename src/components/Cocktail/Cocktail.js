@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bottle from '../../images/bottle.png';
+import Star from '../../images/star.png';
 
 
 class Cocktail extends Component {
@@ -55,6 +56,15 @@ class Cocktail extends Component {
     };
   }
 
+  // starRatingDisplay = () => {
+  //   let stars = [];
+
+  // }
+
+  testFunc = (event) => {
+    console.log('test', event.target.id)
+  }
+
   rightColumnDisplay = () => {
     switch (this.state.display) {
       case 'loading':
@@ -72,8 +82,19 @@ class Cocktail extends Component {
         return <div className="vertical-cocktail-ingredients">
             { this.verticalDisplayIngredients() }
             { this.displayInstructions() }
-            <button>Pour</button>
+            <button onClick={ () => this.displayHelper('pour') }>Pour</button>
           </div>
+      case 'pour':
+        return <div>
+            <p>Rate your cocktail:</p>
+            <div>
+              <img src={ Star } className="rating-star" id="1" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="2" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="3" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="4" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="5" onClick={ this.testFunc } />
+            </div>
+          </div>    
       default:
         break;
     };

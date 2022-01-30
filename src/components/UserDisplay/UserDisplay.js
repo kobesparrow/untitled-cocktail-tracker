@@ -21,7 +21,8 @@ class UserDisplay extends Component {
           </div>
       case 'user':
         return <User 
-                currentUser={ this.props.currentUser } />
+                currentUser={ this.props.currentUser }
+                displayDetail={ this.props.displayDetail } />
       default:
         return <p>there was an error</p>
     }
