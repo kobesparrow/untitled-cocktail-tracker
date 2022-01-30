@@ -11,6 +11,8 @@ class CocktailDisplay extends Component {
     }
   }
 
+
+
   cocktailDisplay = (toDisplay) => {
     switch (toDisplay) {
       case 'loading':

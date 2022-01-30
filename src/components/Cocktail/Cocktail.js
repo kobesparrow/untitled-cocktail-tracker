@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Bottle from '../../images/bottle.png';
-import CocktailGlass from '../../images/martini.png';
-import YellowStar from '../../images/star-color.png';
-import StarOutline from '../../images/star-outline.png';
+import Star from '../../images/star.png';
+
 
 
 class Cocktail extends Component {
@@ -79,6 +78,15 @@ class Cocktail extends Component {
     };
   }
 
+  // starRatingDisplay = () => {
+  //   let stars = [];
+
+  // }
+
+  testFunc = (event) => {
+    console.log('test', event.target.id)
+  }
+
   rightColumnDisplay = () => {
     switch (this.state.display) {
       case 'loading':
@@ -99,12 +107,16 @@ class Cocktail extends Component {
             <button onClick={ () => this.displayHelper('pour') }>Pour</button>
           </div>
       case 'pour':
-        return <section>
-          <p>rating:</p>
-          <div>
-            { this.starDisplay(this.state.stars) }
-          </div>
-          </section>  
+        return <div>
+            <p>Rate your cocktail:</p>
+            <div>
+              <img src={ Star } className="rating-star" id="1" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="2" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="3" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="4" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="5" onClick={ this.testFunc } />
+            </div>
+          </div>    
       default:
         return <div>an error occurred</div>
     };
@@ -112,8 +124,8 @@ class Cocktail extends Component {
  
   render() {
     
-    return <article className="cocktail">         
-              <div className="cocktail-display--left-column">
+    return <article className="cocktail"> 
+              <div className="cocktail-display--left-column">   
               <img src={ this.props.cocktail.glasswareSource } />
               <p>This is the description</p>
               { this.leftColumnDisplay() }
