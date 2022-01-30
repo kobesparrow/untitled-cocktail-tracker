@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Bottle from '../../images/bottle.png';
-import CocktailGlass from '../../images/martini.png'
 
 
 class Cocktail extends Component {

@@ -1,9 +1,9 @@
 import Mando from '../images/mando-helmet.png';
-import Grogu from '../images/grogu.jpeg';
+import Grogu from '../images/grogu.png';
 
 const userData = [
   { userName: 'Din Djarin',
-    avitar: `${Mando}`,
+    avatar: `${Mando}`,
     cocktails: [
       { cocktailName: 'French 75',
       rating: 0,
