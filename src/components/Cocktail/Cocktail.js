@@ -9,7 +9,13 @@ class Cocktail extends Component {
 
     this.state = {
       display: 'main',
+      userCocktail: {}
     }
+  }
+
+  componentDidMount = () => {
+    let userCocktail = this.props.currentUser.cocktails.find(cocktail => cocktail.cocktailName === cocktail.cocktailName)
+    this.setState({ userCocktail })
   }
 
   displayHelper = (display) => {
@@ -63,6 +69,12 @@ class Cocktail extends Component {
 
   testFunc = (event) => {
     console.log('test', event.target.id)
+    //take current cocktail name
+    //create new user cocktail object, add rating + date
+    //push cocktail object into user's cocktails array
+    // should be able to check and see if cocktail already exists, update accordingly
+
+
   }
 
   rightColumnDisplay = () => {
@@ -71,11 +83,10 @@ class Cocktail extends Component {
         return <div>loading</div>
       case 'main':
         return <div>
-            <p>This is the rating</p>
-            <p>This is the date last poured for the user</p>
+            <p>Rating: { this.state.userCocktail.rating }</p>
+            <p>Last poured: { this.state.userCocktail.mostRecent }</p>
             <p>This is the total number drank</p>
             <p>These are tasting notes</p>
-            <p>Buttons giving options for alternative mixes</p>
             <button onClick={ () => this.displayHelper('mix') }>Mix</button>
           </div>
       case 'mix':

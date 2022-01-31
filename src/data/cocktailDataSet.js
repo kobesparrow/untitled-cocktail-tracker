@@ -59,7 +59,7 @@ const cocktailData = [
     glasswareSource: `${flute}`,
     averageRating: 0 },
   { id: 5,
-    cocktailName: 'Sea Breze',
+    cocktailName: 'Sea Breeze',
     category: 'contemporary classic',
     ingredients: [
       { ingredientName: 'vodka', amount: '1 1/2 ounces'},

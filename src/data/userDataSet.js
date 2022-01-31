@@ -7,18 +7,30 @@ const userData = [
     cocktails: [
       { cocktailName: 'French 75',
       rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'December 25, 2021'
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'Paper Plane',
       rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'April 30, 2021'
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'Tequila Sunrise',
       rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'January 11, 2020'
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       }
     ]},
   { userName: 'Grogu',
@@ -26,26 +38,41 @@ const userData = [
     cocktails: [
       { cocktailName: 'Aviation',
       rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'July 4, 2021'
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'French 75',
       rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'October 25, 2020'
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
-      { cocktailName: 'Sea Breze',
+      { cocktailName: 'Sea Breeze',
       rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'May 27, 2020'
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'Bee\'s Knees',
       rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'April 29, 2020'
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       }
     ]}
   ]
-
 
 export default userData;
