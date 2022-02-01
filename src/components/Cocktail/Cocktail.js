@@ -8,15 +8,16 @@ class Cocktail extends Component {
     super()
 
     this.state = {
-      display: 'main',
-      userCocktail: {}
+      display: 'main'
+      // userCocktail: {}
     }
   }
 
-  componentDidMount = () => {
-    let userCocktail = this.props.currentUser.cocktails.find(cocktail => cocktail.cocktailName === cocktail.cocktailName)
-    this.setState({ userCocktail })
-  }
+  // componentDidMount = () => {
+  //   //set to load average user if no currentUser available
+  //   let userCocktail = this.props.currentUser.cocktails.find(cocktail => cocktail.cocktailName === cocktail.cocktailName)
+  //   this.setState({ userCocktail })
+  // }
 
   displayHelper = (display) => {
     this.setState({ display })
@@ -77,15 +78,19 @@ class Cocktail extends Component {
 
   }
 
+  testFunction = () => {
+    console.log('here', this.props.userCocktail)
+  }
+
   rightColumnDisplay = () => {
     switch (this.state.display) {
       case 'loading':
         return <div>loading</div>
       case 'main':
         return <div>
-            <p>Rating: { this.state.userCocktail.rating }</p>
-            <p>Last poured: { this.state.userCocktail.mostRecent }</p>
-            <p>This is the total number drank</p>
+            {/* <p>Rating: { this.props.userCocktail.rating }</p> */}
+            {/* <p>Last poured: { this.props.userCocktail.mostRecent }</p> */}
+            <p>Total Drank: { this.testFunction() }</p>
             <p>These are tasting notes</p>
             <button onClick={ () => this.displayHelper('mix') }>Mix</button>
           </div>

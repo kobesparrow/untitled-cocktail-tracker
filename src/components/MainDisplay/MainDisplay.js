@@ -14,7 +14,8 @@ class MainDisplay extends Component {
       cocktailDisplay: 'loading',
       cocktail: {},
       userDisplay: 'login',
-      currentUser: {}
+      currentUser: {},
+      userCocktail: {}
     }
   }
 
@@ -27,13 +28,15 @@ class MainDisplay extends Component {
   displayDetail = (cocktailName) => {
     //can be made dynamic later to also show liquor detail
     let cocktail = cocktailData.find(cocktail => cocktail.cocktailName === cocktailName)
-    this.setState({ cocktailDisplay: 'cocktail', cocktail })
+    let userCocktail = this.state.currentUser.cocktails.find(cocktail => cocktail.cocktailName === cocktailName)
+    console.log('test 5', userCocktail)
+    //set user Cocktail here in state and pass down to display/cocktail, etc.
+    this.setState({ cocktailDisplay: 'cocktail', cocktail, userCocktail })
   }
 
   displayUser = (userName) => {
     let currentUser = userData.find(user => user.userName === userName)
     this.setState({ userDisplay: 'user', currentUser })
-    console.log('test', currentUser)
   } 
 
   backButton = () => {
@@ -55,12 +58,14 @@ class MainDisplay extends Component {
         randomizedCocktails={ this.state.randomizedCocktails }
         cocktail={ this.state.cocktail }
         currentUser={ this.state.currentUser }
-        displayDetail={ this.displayDetail } />
+        displayDetail={ this.displayDetail } 
+        userCocktail={ this.state.userCocktail } />
       <UserDisplay
         currentUser={ this.state.currentUser } 
         currentDisplay={ this.state.userDisplay }
         displayUser={ this.displayUser }
-        displayDetail={ this.displayDetail } />
+        displayDetail={ this.displayDetail } 
+        userCocktail={ this.state.userCocktail } />
       </section>
   }
 }
