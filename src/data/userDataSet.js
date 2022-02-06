@@ -6,46 +6,73 @@ const userData = [
     avatar: `${Mando}`,
     cocktails: [
       { cocktailName: 'French 75',
-      rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'December 25, 2021'
+      rating: 4,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'April 30, 1984',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'Paper Plane',
-      rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'April 30, 2021'
+      rating: 5,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'May 27, 2016',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'Tequila Sunrise',
-      rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'January 11, 2020'
+      rating: 3,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'July 25, 2019',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       }
     ]},
   { userName: 'Grogu',
     avatar: `${Grogu}`,
     cocktails: [
       { cocktailName: 'Aviation',
-      rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'July 4, 2021'
+      rating: 5,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'January 1, 2021',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'French 75',
-      rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'October 25, 2020'
+      rating: 4,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'December 25, 2021',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
-      { cocktailName: 'Sea Breze',
-      rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'May 27, 2020'
+      { cocktailName: 'Sea Breeze',
+      rating: 2,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'October 31, 2021',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       },
       { cocktailName: 'Bee\'s Knees',
-      rating: 0,
-      notes: 'notes on cocktail',
-      mostRecent: 'April 29, 2020'
+      rating: 3,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'May 5, 2021',
+        rating: 4,
+        note: 'this is a cocktail note'
+      }]
       }
     ]}
   ]
-
 
 export default userData;

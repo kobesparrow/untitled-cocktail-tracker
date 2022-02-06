@@ -23,7 +23,10 @@ class CocktailDisplay extends Component {
                   displayDetail = { this.props.displayDetail } />
       case 'cocktail':
         return <Cocktail 
-                  cocktail={ this.props.cocktail } />
+                  cocktail={ this.props.cocktail } 
+                  currentUser={ this.props.currentUser } 
+                  userCocktail={ this.props.userCocktail } 
+                  rateCocktail={ this.props.rateCocktail } />
       default:
         return <p>there was an error</p>
     }

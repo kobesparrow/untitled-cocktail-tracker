@@ -14,7 +14,8 @@ class MainDisplay extends Component {
       cocktailDisplay: 'loading',
       cocktail: {},
       userDisplay: 'login',
-      currentUser: {}
+      currentUser: {},
+      userCocktail: {}
     }
   }
 
@@ -27,18 +28,59 @@ class MainDisplay extends Component {
   displayDetail = (cocktailName) => {
     //can be made dynamic later to also show liquor detail
     let cocktail = cocktailData.find(cocktail => cocktail.cocktailName === cocktailName)
-    this.setState({ cocktailDisplay: 'cocktail', cocktail })
+    let userCocktail = this.state.currentUser.cocktails.find(cocktail => cocktail.cocktailName === cocktailName)
+    //set user Cocktail here in state and pass down to display/cocktail, etc.
+    this.setState({ cocktailDisplay: 'cocktail', cocktail, userCocktail })
   }
 
   displayUser = (userName) => {
     let currentUser = userData.find(user => user.userName === userName)
     this.setState({ userDisplay: 'user', currentUser })
-    console.log('test', currentUser)
   } 
 
   backButton = () => {
     this.setState({ cocktailDisplay: 'menu' })
-    console.log('test back')
+  }
+
+  rateCocktail = (event) => {
+    let rating = parseInt(event.target.id)
+
+    if (this.state.userCocktail) {
+      this.addPourToUserCocktails(rating)
+    } else {
+      this.addCocktailToUser(rating)
+    }
+  }
+
+  addPourToUserCocktails = (rating) => {
+    let currentUser = this.state.currentUser;
+    let recentPour = {date: 'February 6, 2021', rating, note: 'this is a cocktail note'};
+    let cocktailIndex = this.state.currentUser.cocktails.findIndex(cocktail => cocktail.cocktailName === this.state.userCocktail.cocktailName);
+    currentUser.cocktails[cocktailIndex].pours.unshift(recentPour);
+    
+    let updatedAverageRating = currentUser.cocktails[cocktailIndex].pours.reduce((acc, pour) => {
+      return acc + pour.rating;
+    }, 0) / currentUser.cocktails[cocktailIndex].pours.length
+    currentUser.cocktails[cocktailIndex].rating = updatedAverageRating;
+    
+    currentUser.cocktails.unshift(currentUser.cocktails.splice(cocktailIndex, 1)[0])
+
+    this.setState({ currentUser })
+  }
+
+  addCocktailToUser = (rating) => {
+    let currentUser = this.state.currentUser;
+    let newCocktail = { cocktailName: this.state.cocktail.cocktailName,
+      rating: rating,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'October 31, 2021',
+        rating: rating,
+        note: 'this is a cocktail note'
+      }]}
+
+    currentUser.cocktails.unshift(newCocktail)
+    this.setState({ currentUser })
   }
 
   render() {
@@ -54,12 +96,16 @@ class MainDisplay extends Component {
         currentDisplay={ this.state.cocktailDisplay } 
         randomizedCocktails={ this.state.randomizedCocktails }
         cocktail={ this.state.cocktail }
-        displayDetail={ this.displayDetail } />
+        currentUser={ this.state.currentUser }
+        displayDetail={ this.displayDetail } 
+        userCocktail={ this.state.userCocktail } 
+        rateCocktail={ this.rateCocktail } />
       <UserDisplay
         currentUser={ this.state.currentUser } 
         currentDisplay={ this.state.userDisplay }
         displayUser={ this.displayUser }
-        displayDetail={ this.displayDetail } />
+        displayDetail={ this.displayDetail } 
+        userCocktail={ this.state.userCocktail } />
       </section>
   }
 }
