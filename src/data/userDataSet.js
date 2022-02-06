@@ -6,7 +6,7 @@ const userData = [
     avatar: `${Mando}`,
     cocktails: [
       { cocktailName: 'French 75',
-      rating: 0,
+      rating: 4,
       notes: ['notes on cocktail'],
       pours: [{
         date: 'April 30, 1984',
@@ -15,7 +15,7 @@ const userData = [
       }]
       },
       { cocktailName: 'Paper Plane',
-      rating: 0,
+      rating: 5,
       notes: ['notes on cocktail'],
       pours: [{
         date: 'May 27, 2016',
@@ -24,7 +24,7 @@ const userData = [
       }]
       },
       { cocktailName: 'Tequila Sunrise',
-      rating: 0,
+      rating: 3,
       notes: ['notes on cocktail'],
       pours: [{
         date: 'July 25, 2019',
@@ -37,7 +37,7 @@ const userData = [
     avatar: `${Grogu}`,
     cocktails: [
       { cocktailName: 'Aviation',
-      rating: 0,
+      rating: 5,
       notes: ['notes on cocktail'],
       pours: [{
         date: 'January 1, 2021',
@@ -46,7 +46,7 @@ const userData = [
       }]
       },
       { cocktailName: 'French 75',
-      rating: 0,
+      rating: 4,
       notes: ['notes on cocktail'],
       pours: [{
         date: 'December 25, 2021',
@@ -55,7 +55,7 @@ const userData = [
       }]
       },
       { cocktailName: 'Sea Breeze',
-      rating: 0,
+      rating: 2,
       notes: ['notes on cocktail'],
       pours: [{
         date: 'October 31, 2021',
@@ -64,7 +64,7 @@ const userData = [
       }]
       },
       { cocktailName: 'Bee\'s Knees',
-      rating: 0,
+      rating: 3,
       notes: ['notes on cocktail'],
       pours: [{
         date: 'May 5, 2021',

@@ -68,16 +68,6 @@ class Cocktail extends Component {
 
   // }
 
-  testFunc = (event) => {
-    console.log('test', event.target.id)
-    //take current cocktail name
-    //create new user cocktail object, add rating + date
-    //push cocktail object into user's cocktails array
-    // should be able to check and see if cocktail already exists, update accordingly
-
-
-  }
-
   testFunction = () => {
     console.log('here', this.props.userCocktail)
   }
@@ -104,11 +94,11 @@ class Cocktail extends Component {
         return <div>
             <p>Rate your cocktail:</p>
             <div>
-              <img src={ Star } className="rating-star" id="1" onClick={ this.testFunc } />
-              <img src={ Star } className="rating-star" id="2" onClick={ this.testFunc } />
-              <img src={ Star } className="rating-star" id="3" onClick={ this.testFunc } />
-              <img src={ Star } className="rating-star" id="4" onClick={ this.testFunc } />
-              <img src={ Star } className="rating-star" id="5" onClick={ this.testFunc } />
+              <img src={ Star } className="rating-star" id="1" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="2" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="3" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="4" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="5" onClick={ this.props.rateCocktail } />
             </div>
           </div>    
       default:

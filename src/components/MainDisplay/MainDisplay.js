@@ -40,7 +40,22 @@ class MainDisplay extends Component {
 
   backButton = () => {
     this.setState({ cocktailDisplay: 'menu' })
-    console.log('test back')
+  }
+
+  rateCocktail = (event) => {
+    console.log('test', event.target.id)
+    console.log('test again', this.state.currentUser.cocktails)
+    if (this.state.userCocktail) {
+      console.log('inside')
+    } else {
+      console.log('outside')
+    }
+    // if () }
+
+    //take current cocktail name
+    //create new user cocktail object, add rating + date
+    //push cocktail object into user's cocktails array
+    // should be able to check and see if cocktail already exists, update accordingly
   }
 
   render() {
@@ -58,7 +73,8 @@ class MainDisplay extends Component {
         cocktail={ this.state.cocktail }
         currentUser={ this.state.currentUser }
         displayDetail={ this.displayDetail } 
-        userCocktail={ this.state.userCocktail } />
+        userCocktail={ this.state.userCocktail } 
+        rateCocktail={ this.rateCocktail } />
       <UserDisplay
         currentUser={ this.state.currentUser } 
         currentDisplay={ this.state.userDisplay }

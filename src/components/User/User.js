@@ -20,7 +20,8 @@ class User extends Component {
           <img src={ drinkData.glasswareSource } />
           <div>
             <p>{ drinkData.cocktailName }</p>
-            <p>Last Consumed: { cocktail.pours[0].date }</p>  
+            <p>Last Consumed: { cocktail.pours[0].date }</p>
+            <p>Average Rating: { cocktail.rating }</p>  
           </div>
         </button>
       acc.push(recentDrinkDiv)
