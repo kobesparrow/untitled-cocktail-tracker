@@ -9,7 +9,6 @@ class Cocktail extends Component {
 
     this.state = {
       display: 'main'
-      // userCocktail: {}
     }
   }
 
@@ -54,7 +53,7 @@ class Cocktail extends Component {
     switch (this.state.display) {
       case 'main':
         return <div className="horizontal-cocktail-ingredients">
-              { this.horizontalDisplayIngredients() }
+              {/* { this.horizontalDisplayIngredients() } */}
             </div>
       case 'mix':
         return null
@@ -80,15 +79,22 @@ class Cocktail extends Component {
         return <div>
             {/* <p>Rating: { this.props.userCocktail.rating }</p> */}
             {/* <p>Last poured: { this.props.userCocktail.mostRecent }</p> */}
-            <p>Total Drank: { this.testFunction() }</p>
-            <p>These are tasting notes</p>
+            { this.verticalDisplayIngredients() }
+            { this.displayInstructions() }
             <button onClick={ () => this.displayHelper('mix') }>Mix</button>
           </div>
       case 'mix':
         return <div className="vertical-cocktail-ingredients">
+            <p>Rate your cocktail:</p>
+            <div>
+              <img src={ Star } className="rating-star" id="1" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="2" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="3" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="4" onClick={ this.props.rateCocktail } />
+              <img src={ Star } className="rating-star" id="5" onClick={ this.props.rateCocktail } />
+            </div>
             { this.verticalDisplayIngredients() }
             { this.displayInstructions() }
-            <button onClick={ () => this.displayHelper('pour') }>Pour</button>
           </div>
       case 'pour':
         return <div>
@@ -112,6 +118,8 @@ class Cocktail extends Component {
               <div className="cocktail-display--left-column">   
               <img src={ this.props.cocktail.glasswareSource } />
               <p>This is the description</p>
+              <p>Total Drank: { this.testFunction() }</p>
+              <p>These are tasting notes</p>
               { this.leftColumnDisplay() }
             </div>
             <div className="cocktail-display--right-column">
