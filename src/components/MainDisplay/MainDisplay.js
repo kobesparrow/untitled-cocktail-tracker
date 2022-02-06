@@ -43,12 +43,22 @@ class MainDisplay extends Component {
   }
 
   rateCocktail = (event) => {
-    console.log('test', event.target.id)
-    console.log('test again', this.state.currentUser.cocktails)
     if (this.state.userCocktail) {
       console.log('inside')
     } else {
-      console.log('outside')
+
+      let currentUser = this.state.currentUser
+      let newCocktail = { cocktailName: this.state.cocktail.cocktailName,
+        rating: event.target.id,
+        notes: ['notes on cocktail'],
+        pours: [{
+          date: 'October 31, 2021',
+          rating: event.target.id,
+          note: 'this is a cocktail note'
+        }]}
+
+      currentUser.cocktails.unshift(newCocktail)
+      this.setState({ currentUser })
     }
     // if () }
 
