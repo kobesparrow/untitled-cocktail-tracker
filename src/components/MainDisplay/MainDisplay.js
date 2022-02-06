@@ -43,29 +43,44 @@ class MainDisplay extends Component {
   }
 
   rateCocktail = (event) => {
+    let rating = parseInt(event.target.id)
+
     if (this.state.userCocktail) {
-      console.log('inside')
+      this.addPourToUserCocktails(rating)
     } else {
-
-      let currentUser = this.state.currentUser
-      let newCocktail = { cocktailName: this.state.cocktail.cocktailName,
-        rating: event.target.id,
-        notes: ['notes on cocktail'],
-        pours: [{
-          date: 'October 31, 2021',
-          rating: event.target.id,
-          note: 'this is a cocktail note'
-        }]}
-
-      currentUser.cocktails.unshift(newCocktail)
-      this.setState({ currentUser })
+      this.addCocktailToUser(rating)
     }
-    // if () }
+  }
 
-    //take current cocktail name
-    //create new user cocktail object, add rating + date
-    //push cocktail object into user's cocktails array
-    // should be able to check and see if cocktail already exists, update accordingly
+  addPourToUserCocktails = (rating) => {
+    let currentUser = this.state.currentUser;
+    let recentPour = {date: 'February 6, 2021', rating, note: 'this is a cocktail note'};
+    let cocktailIndex = this.state.currentUser.cocktails.findIndex(cocktail => cocktail.cocktailName === this.state.userCocktail.cocktailName);
+    currentUser.cocktails[cocktailIndex].pours.unshift(recentPour);
+    
+    let updatedAverageRating = currentUser.cocktails[cocktailIndex].pours.reduce((acc, pour) => {
+      return acc + pour.rating;
+    }, 0) / currentUser.cocktails[cocktailIndex].pours.length
+    currentUser.cocktails[cocktailIndex].rating = updatedAverageRating;
+    
+    currentUser.cocktails.unshift(currentUser.cocktails.splice(cocktailIndex, 1)[0])
+
+    this.setState({ currentUser })
+  }
+
+  addCocktailToUser = (rating) => {
+    let currentUser = this.state.currentUser;
+    let newCocktail = { cocktailName: this.state.cocktail.cocktailName,
+      rating: rating,
+      notes: ['notes on cocktail'],
+      pours: [{
+        date: 'October 31, 2021',
+        rating: rating,
+        note: 'this is a cocktail note'
+      }]}
+
+    currentUser.cocktails.unshift(newCocktail)
+    this.setState({ currentUser })
   }
 
   render() {
