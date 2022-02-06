@@ -3,6 +3,7 @@ import Bottle from '../../images/bottle.png';
 import Star from '../../images/star.png';
 
 
+
 class Cocktail extends Component {
   constructor() {
     super()
@@ -54,7 +55,7 @@ class Cocktail extends Component {
   //     default:
   //       break;
   //   };
-  // }
+
 
   testFunction = () => {
     console.log('here', this.props.userCocktail)
@@ -86,7 +87,7 @@ class Cocktail extends Component {
             { this.displayInstructions() }
           </div>   
       default:
-        break;
+        return <div>an error occurred</div>
     };
   }
  
