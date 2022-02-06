@@ -18,7 +18,7 @@ const userData = [
       rating: 0,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'April 30, 1984',
+        date: 'May 27, 2016',
         rating: 4,
         note: 'this is a cocktail note'
       }]
@@ -27,7 +27,7 @@ const userData = [
       rating: 0,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'April 30, 1984',
+        date: 'July 25, 2019',
         rating: 4,
         note: 'this is a cocktail note'
       }]
@@ -40,7 +40,7 @@ const userData = [
       rating: 0,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'April 30, 1984',
+        date: 'January 1, 2021',
         rating: 4,
         note: 'this is a cocktail note'
       }]
@@ -49,7 +49,7 @@ const userData = [
       rating: 0,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'April 30, 1984',
+        date: 'December 25, 2021',
         rating: 4,
         note: 'this is a cocktail note'
       }]
@@ -58,7 +58,7 @@ const userData = [
       rating: 0,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'April 30, 1984',
+        date: 'October 31, 2021',
         rating: 4,
         note: 'this is a cocktail note'
       }]
@@ -67,7 +67,7 @@ const userData = [
       rating: 0,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'April 30, 1984',
+        date: 'May 5, 2021',
         rating: 4,
         note: 'this is a cocktail note'
       }]

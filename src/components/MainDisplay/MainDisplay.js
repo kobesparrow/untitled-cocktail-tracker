@@ -29,7 +29,6 @@ class MainDisplay extends Component {
     //can be made dynamic later to also show liquor detail
     let cocktail = cocktailData.find(cocktail => cocktail.cocktailName === cocktailName)
     let userCocktail = this.state.currentUser.cocktails.find(cocktail => cocktail.cocktailName === cocktailName)
-    console.log('test 5', userCocktail)
     //set user Cocktail here in state and pass down to display/cocktail, etc.
     this.setState({ cocktailDisplay: 'cocktail', cocktail, userCocktail })
   }
