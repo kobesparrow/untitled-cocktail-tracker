@@ -57,10 +57,6 @@ class Cocktail extends Component {
   //   };
 
 
-  testFunction = () => {
-    console.log('here', this.props.userCocktail)
-  }
-
   rightColumnDisplay = () => {
     switch (this.state.display) {
       case 'loading':
@@ -97,8 +93,6 @@ class Cocktail extends Component {
               <div className="cocktail-display--left-column">   
               <img src={ this.props.cocktail.glasswareSource } />
               <p>This is the description</p>
-              <p>Total Drank: { this.testFunction() }</p>
-              <p>These are tasting notes</p>
               {/* { this.leftColumnDisplay() } */}
             </div>
             <div className="cocktail-display--right-column">

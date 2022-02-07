@@ -14,6 +14,7 @@ class User extends Component {
 
   displayUserDrinkHistory = () => {
     //will eventually need to update this to only show five most recent
+    //still need to push data, into userObject - this will only display the five most recent
     let bigAssReduce = this.props.currentUser.cocktails.reduce((acc, cocktail) => {
       let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
       let recentDrinkDiv = <button className="recent-drink-display" onClick={ () => this.props.displayDetail(cocktail.cocktailName) }>
