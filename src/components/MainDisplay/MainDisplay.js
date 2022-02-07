@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CocktailDisplay from '../CocktailDisplay/CocktailDisplay';
-import Menu from '../Menu/Menu';
+// import Menu from '../Menu/Menu';
 import UserDisplay from '../UserDisplay/UserDisplay';
 import cocktailData from '../../data/cocktailDataSet';
 import userData from '../../data/userDataSet';
@@ -14,8 +14,7 @@ class MainDisplay extends Component {
       cocktailDisplay: 'loading',
       cocktail: {},
       userDisplay: 'login',
-      currentUser: {},
-      userCocktail: {}
+      currentUser: {}
     }
   }
 
@@ -28,9 +27,8 @@ class MainDisplay extends Component {
   displayDetail = (cocktailName) => {
     //can be made dynamic later to also show liquor detail
     let cocktail = cocktailData.find(cocktail => cocktail.cocktailName === cocktailName)
-    let userCocktail = this.state.currentUser.cocktails.find(cocktail => cocktail.cocktailName === cocktailName)
     //set user Cocktail here in state and pass down to display/cocktail, etc.
-    this.setState({ cocktailDisplay: 'cocktail', cocktail, userCocktail })
+    this.setState({ cocktailDisplay: 'cocktail', cocktail })
   }
 
   displayUser = (userName) => {
@@ -45,17 +43,17 @@ class MainDisplay extends Component {
   rateCocktail = (event) => {
     let rating = parseInt(event.target.id)
 
-    if (this.state.userCocktail) {
-      this.addPourToUserCocktails(rating)
+    if (this.state.currentUser.cocktails.some(cocktail => cocktail.cocktailName === this.state.cocktail.cocktailName)) {
+      this.addToExistingUserCocktail(rating)
     } else {
       this.addCocktailToUser(rating)
     }
   }
 
-  addPourToUserCocktails = (rating) => {
+  addToExistingUserCocktail = (rating) => {
     let currentUser = this.state.currentUser;
     let recentPour = {date: 'February 6, 2021', rating, note: 'this is a cocktail note'};
-    let cocktailIndex = this.state.currentUser.cocktails.findIndex(cocktail => cocktail.cocktailName === this.state.userCocktail.cocktailName);
+    let cocktailIndex = this.state.currentUser.cocktails.findIndex(cocktail => cocktail.cocktailName === this.state.cocktail.cocktailName);
     currentUser.cocktails[cocktailIndex].pours.unshift(recentPour);
     
     let updatedAverageRating = currentUser.cocktails[cocktailIndex].pours.reduce((acc, pour) => {
@@ -98,14 +96,12 @@ class MainDisplay extends Component {
         cocktail={ this.state.cocktail }
         currentUser={ this.state.currentUser }
         displayDetail={ this.displayDetail } 
-        userCocktail={ this.state.userCocktail } 
         rateCocktail={ this.rateCocktail } />
       <UserDisplay
         currentUser={ this.state.currentUser } 
         currentDisplay={ this.state.userDisplay }
         displayUser={ this.displayUser }
-        displayDetail={ this.displayDetail } 
-        userCocktail={ this.state.userCocktail } />
+        displayDetail={ this.displayDetail } />
       </section>
   }
 }
