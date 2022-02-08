@@ -65,7 +65,7 @@ class Cocktail extends Component {
         return <div>
             { this.verticalDisplayIngredients() }
             { this.displayInstructions() }
-            <button onClick={ () => this.displayHelper('mix') }>Mix</button>
+            { this.props.currentUser.userName && <button onClick={ () => this.displayHelper('mix') }>Mix</button> }
           </div>
       case 'mix':
         return <div className="vertical-cocktail-ingredients">
@@ -77,6 +77,11 @@ class Cocktail extends Component {
               <img src={ Star } className="rating-star" id="4" onClick={ this.props.rateCocktail } />
               <img src={ Star } className="rating-star" id="5" onClick={ this.props.rateCocktail } />
             </div>
+            <form>
+              <p>Suggest an alteration:</p>
+              <textarea>Type Here</textarea>
+              <button>Submit</button>
+            </form>
             <div className="horizontal-cocktail-ingredients">
               { this.horizontalDisplayIngredients() }
             </div>

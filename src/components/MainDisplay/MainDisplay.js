@@ -14,14 +14,25 @@ class MainDisplay extends Component {
       cocktailDisplay: 'loading',
       cocktail: {},
       userDisplay: 'login',
-      currentUser: {}
+      currentUser: {},
+      date: ''
     }
   }
 
   componentDidMount() {
     let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
     let randomizedCocktails = shuffledCocktails.slice(0, 4)
-    this.setState({ randomizedCocktails, cocktailDisplay: 'menu' })
+    let date = this.getDate()
+    this.setState({ randomizedCocktails, date, cocktailDisplay: 'menu' })
+  }
+
+  getDate = () => {
+    let today = new Date();
+    let year = today.getFullYear()
+    let month = today.toLocaleString('default', { month: 'long' });
+    let day = today.getDate()
+
+    return `${month} ${day}, ${year}`
   }
 
   displayDetail = (cocktailName) => {
@@ -36,8 +47,13 @@ class MainDisplay extends Component {
     this.setState({ userDisplay: 'user', currentUser })
   } 
 
-  backButton = () => {
-    this.setState({ cocktailDisplay: 'menu' })
+  backButton = (component, display) => {
+    if (component === 'user') {
+      this.setState({ userDisplay: display })
+    } else {
+      this.setState({ cocktailDisplay: display })
+    }
+    // console.log('test')
   }
 
   rateCocktail = (event) => {
@@ -52,7 +68,7 @@ class MainDisplay extends Component {
 
   addToExistingUserCocktail = (rating) => {
     let currentUser = this.state.currentUser;
-    let recentPour = {date: 'February 6, 2021', rating, note: 'this is a cocktail note'};
+    let recentPour = {date: `${ this.state.date }`, rating, note: 'this is a cocktail note'};
     let cocktailIndex = this.state.currentUser.cocktails.findIndex(cocktail => cocktail.cocktailName === this.state.cocktail.cocktailName);
     currentUser.cocktails[cocktailIndex].pours.unshift(recentPour);
     
@@ -72,7 +88,7 @@ class MainDisplay extends Component {
       rating: rating,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'October 31, 2021',
+        date: `${this.state.date}`,
         rating: rating,
         note: 'this is a cocktail note'
       }]}
@@ -85,7 +101,7 @@ class MainDisplay extends Component {
     let backButton
     
     if (this.state.cocktailDisplay === 'cocktail') {
-      backButton = <button className="back-button" onClick={ this.backButton }>Back</button>
+      backButton = <button className="back-button" onClick={ () => this.backButton('cocktail', 'menu') }>Back</button>
     }
 
     return <section className="main-display">
@@ -101,7 +117,8 @@ class MainDisplay extends Component {
         currentUser={ this.state.currentUser } 
         currentDisplay={ this.state.userDisplay }
         displayUser={ this.displayUser }
-        displayDetail={ this.displayDetail } />
+        displayDetail={ this.displayDetail } 
+        backButton={ this.backButton } />
       </section>
   }
 }
