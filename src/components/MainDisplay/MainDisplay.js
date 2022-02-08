@@ -14,14 +14,33 @@ class MainDisplay extends Component {
       cocktailDisplay: 'loading',
       cocktail: {},
       userDisplay: 'login',
-      currentUser: {}
+      currentUser: {},
+      date: ''
     }
   }
 
   componentDidMount() {
     let shuffledCocktails = cocktailData.sort( () => Math.random() - 0.5);
     let randomizedCocktails = shuffledCocktails.slice(0, 4)
-    this.setState({ randomizedCocktails, cocktailDisplay: 'menu' })
+    let date = this.getDate()
+    this.setState({ randomizedCocktails, date, cocktailDisplay: 'menu' })
+  }
+
+  getDate = () => {
+    let today = new Date();
+    let year = today.getFullYear()
+    let month = today.toLocaleString('default', { month: 'long' });
+    let day = today.getDate()
+
+    return `${month} ${day}, ${year}`
+  }
+
+  formatDate = (date) => {
+    let year = date.getFullYear()
+    let month = date.toLocaleString('default', { month: 'long' });
+    let day = date.getDate()
+
+    return `${month} ${day}, ${year}`
   }
 
   displayDetail = (cocktailName) => {

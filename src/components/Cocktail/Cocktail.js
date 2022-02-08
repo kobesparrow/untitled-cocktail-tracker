@@ -65,7 +65,7 @@ class Cocktail extends Component {
         return <div>
             { this.verticalDisplayIngredients() }
             { this.displayInstructions() }
-            <button onClick={ () => this.displayHelper('mix') }>Mix</button>
+            { this.props.currentUser.userName && <button onClick={ () => this.displayHelper('mix') }>Mix</button> }
           </div>
       case 'mix':
         return <div className="vertical-cocktail-ingredients">
