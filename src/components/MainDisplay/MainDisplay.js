@@ -35,14 +35,6 @@ class MainDisplay extends Component {
     return `${month} ${day}, ${year}`
   }
 
-  formatDate = (date) => {
-    let year = date.getFullYear()
-    let month = date.toLocaleString('default', { month: 'long' });
-    let day = date.getDate()
-
-    return `${month} ${day}, ${year}`
-  }
-
   displayDetail = (cocktailName) => {
     //can be made dynamic later to also show liquor detail
     let cocktail = cocktailData.find(cocktail => cocktail.cocktailName === cocktailName)
@@ -71,7 +63,7 @@ class MainDisplay extends Component {
 
   addToExistingUserCocktail = (rating) => {
     let currentUser = this.state.currentUser;
-    let recentPour = {date: 'February 6, 2021', rating, note: 'this is a cocktail note'};
+    let recentPour = {date: `${ this.state.date }`, rating, note: 'this is a cocktail note'};
     let cocktailIndex = this.state.currentUser.cocktails.findIndex(cocktail => cocktail.cocktailName === this.state.cocktail.cocktailName);
     currentUser.cocktails[cocktailIndex].pours.unshift(recentPour);
     
@@ -91,7 +83,7 @@ class MainDisplay extends Component {
       rating: rating,
       notes: ['notes on cocktail'],
       pours: [{
-        date: 'October 31, 2021',
+        date: `${this.state.date}`,
         rating: rating,
         note: 'this is a cocktail note'
       }]}
