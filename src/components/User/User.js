@@ -35,6 +35,7 @@ class User extends Component {
 
   render() {
     return <article className="user-display">
+        <button onClick={ () => this.props.backButton('user', 'login') }>Change User</button>
         <img src={ this.props.currentUser.avatar } className="user-avatar" />
         <p className="subhead">{ this.props.currentUser.userName }</p>
         <p>Cocktails poured: { this.props.currentUser.cocktails.length }</p>

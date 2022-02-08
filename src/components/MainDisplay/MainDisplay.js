@@ -47,8 +47,13 @@ class MainDisplay extends Component {
     this.setState({ userDisplay: 'user', currentUser })
   } 
 
-  backButton = () => {
-    this.setState({ cocktailDisplay: 'menu' })
+  backButton = (component, display) => {
+    if (component === 'user') {
+      this.setState({ userDisplay: display })
+    } else {
+      this.setState({ cocktailDisplay: display })
+    }
+    // console.log('test')
   }
 
   rateCocktail = (event) => {
@@ -96,7 +101,7 @@ class MainDisplay extends Component {
     let backButton
     
     if (this.state.cocktailDisplay === 'cocktail') {
-      backButton = <button className="back-button" onClick={ this.backButton }>Back</button>
+      backButton = <button className="back-button" onClick={ () => this.backButton('cocktail', 'menu') }>Back</button>
     }
 
     return <section className="main-display">
@@ -112,7 +117,8 @@ class MainDisplay extends Component {
         currentUser={ this.state.currentUser } 
         currentDisplay={ this.state.userDisplay }
         displayUser={ this.displayUser }
-        displayDetail={ this.displayDetail } />
+        displayDetail={ this.displayDetail } 
+        backButton={ this.backButton } />
       </section>
   }
 }
