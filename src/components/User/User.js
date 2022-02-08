@@ -38,6 +38,7 @@ class User extends Component {
         <button onClick={ () => this.props.backButton('user', 'login') }>Change User</button>
         <img src={ this.props.currentUser.avatar } className="user-avatar" />
         <p className="subhead">{ this.props.currentUser.userName }</p>
+        <button>My Liquor Cabinet</button>
         <p>Cocktails poured: { this.props.currentUser.cocktails.length }</p>
         <p>Percent complete: { this.percentComplete() } </p>
         <p>Recent Drink History</p>

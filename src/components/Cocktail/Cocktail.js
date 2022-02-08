@@ -77,6 +77,11 @@ class Cocktail extends Component {
               <img src={ Star } className="rating-star" id="4" onClick={ this.props.rateCocktail } />
               <img src={ Star } className="rating-star" id="5" onClick={ this.props.rateCocktail } />
             </div>
+            <form>
+              <p>Suggest an alteration:</p>
+              <textarea>Type Here</textarea>
+              <button>Submit</button>
+            </form>
             <div className="horizontal-cocktail-ingredients">
               { this.horizontalDisplayIngredients() }
             </div>
