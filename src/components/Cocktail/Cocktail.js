@@ -9,7 +9,8 @@ class Cocktail extends Component {
     super()
 
     this.state = {
-      display: 'main'
+      display: 'main',
+      alteration: ''
     }
   }
 
@@ -43,7 +44,7 @@ class Cocktail extends Component {
       return <p>• { instruction }</p>
     })
   }
- 
+
   // leftColumnDisplay = () => {
   //   switch (this.state.display) {
   //     case 'main':
@@ -55,6 +56,27 @@ class Cocktail extends Component {
   //     default:
   //       break;
   //   };
+
+  addAlteration = (event) => {
+    event.preventDefault()
+    let newAlteration = { user: this.props.currentUser.userName, text: this.state.alteration }
+    this.props.cocktail.alterations.unshift(newAlteration)
+    this.setState({ alteration: '' })
+    console.log('test', newAlteration)
+  }
+
+  stashAlteration = (event) => {
+    this.setState({ alteration: event.target.value })
+  }
+
+  displayAlterations = () => {
+    return this.props.cocktail.alterations.map(alteration => {
+      return <div>
+          <p>{ alteration.text }</p>
+          <p>— { alteration.user }</p>
+        </div>
+    })
+  }
 
 
   rightColumnDisplay = () => {
@@ -79,8 +101,8 @@ class Cocktail extends Component {
             </div>
             <form>
               <p>Suggest an alteration:</p>
-              <textarea>Type Here</textarea>
-              <button>Submit</button>
+              <input type="text" onChange={ this.stashAlteration } placeholder="(optional)" value={ this.state.alteration }></input>
+              <button onClick={ this.addAlteration }>Submit</button>
             </form>
             <div className="horizontal-cocktail-ingredients">
               { this.horizontalDisplayIngredients() }
@@ -98,6 +120,9 @@ class Cocktail extends Component {
               <div className="cocktail-display--left-column">   
               <img src={ this.props.cocktail.glasswareSource } />
               <p>This is the description</p>
+              <p>Average Rating: { this.props.cocktail.averageRating }</p>
+              <p>Number of times consumed?</p>
+              <p>{ this.displayAlterations() }</p>
               {/* { this.leftColumnDisplay() } */}
             </div>
             <div className="cocktail-display--right-column">
