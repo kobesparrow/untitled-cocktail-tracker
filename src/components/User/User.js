@@ -13,24 +13,19 @@ class User extends Component {
   }
 
   displayUserDrinkHistory = () => {
-    //will eventually need to update this to only show five most recent
-    //still need to push data, into userObject - this will only display the five most recent
-    ///[1, 2, 3, 4].map(functionality here to display, will only do the display four timest)
-    let bigAssReduce = this.props.currentUser.cocktails.reduce((acc, cocktail) => {
-      let drinkData = cocktailData.find(data => data.cocktailName === cocktail.cocktailName)
-      let recentDrinkDiv = <button className="recent-drink-display" onClick={ () => this.props.displayDetail(cocktail.cocktailName) }>
-          <img src={ drinkData.glasswareSource } />
-          <div>
-            <p>{ drinkData.cocktailName }</p>
-            <p>Last Consumed: { cocktail.pours[0].date }</p>
-            <p>Average Rating: { cocktail.rating }</p>  
-          </div>
-        </button>
-      acc.push(recentDrinkDiv)
-      return acc;
-    }, [])
-
-    return bigAssReduce
+    return [0, 1, 2, 3].map(index => {
+      if (this.props.currentUser.cocktails[index]) {
+        let drinkData = cocktailData.find(data => data.cocktailName === this.props.currentUser.cocktails[index].cocktailName)
+        return <button className="recent-drink-display" onClick={ () => this.props.displayDetail(this.props.currentUser.cocktails[index].cocktailName) }>
+                <img src={ drinkData.glasswareSource } />
+                <div>
+                  <p>{ drinkData.cocktailName }</p>
+                  <p>Last Consumed: { this.props.currentUser.cocktails[index].pours[0].date }</p>
+                  <p>Average Rating: { this.props.currentUser.cocktails[index].rating }</p>  
+                </div>
+              </button>
+      }
+    });
   }
 
   render() {

@@ -97,6 +97,14 @@ class MainDisplay extends Component {
     this.setState({ currentUser })
   }
 
+  testFunc = () => {
+    let test = [1, 2, 3, 4].map(num => {
+      return <p>test</p>
+    })
+
+    return test
+  }
+
   render() {
     let backButton
     
@@ -119,6 +127,7 @@ class MainDisplay extends Component {
         displayUser={ this.displayUser }
         displayDetail={ this.displayDetail } 
         backButton={ this.backButton } />
+      <div>{ this.testFunc() }</div>
       </section>
   }
 }
