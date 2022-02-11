@@ -124,7 +124,8 @@ const cocktailData = [
     instructions: ['add to mixing glass with ice and stir', 'strain into glass', 'garnish'],
     glassware: 'coupe',
     glasswareSource: `${coupe}`,
-    averageRating: 0 }
+    averageRating: 0,
+    alterations: [] }
   ]
 
 export default cocktailData

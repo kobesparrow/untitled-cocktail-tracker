@@ -59,11 +59,12 @@ class Cocktail extends Component {
 
   testFunc = (event) => {
     event.preventDefault()
-    console.log('test', event.target.value)
+    this.props.cocktail.alterations.unshift(this.state.alteration)
+    this.setState({ alteration: '' })
+    console.log('test', this.props.cocktail)
   }
 
   stashAlteration = (event) => {
-    console.log('stash', event.target.value)
     this.setState({ alteration: event.target.value })
   }
 
@@ -90,7 +91,7 @@ class Cocktail extends Component {
             </div>
             <form>
               <p>Suggest an alteration:</p>
-              <textarea onChange={ this.stashAlteration } placeholder="(optional)"></textarea>
+              <input type="text" onChange={ this.stashAlteration } placeholder="(optional)" value={ this.state.alteration }></input>
               <button onClick={ this.testFunc }>Submit</button>
             </form>
             <div className="horizontal-cocktail-ingredients">
