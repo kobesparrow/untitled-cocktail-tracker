@@ -44,7 +44,7 @@ class Cocktail extends Component {
       return <p>• { instruction }</p>
     })
   }
- 
+
   // leftColumnDisplay = () => {
   //   switch (this.state.display) {
   //     case 'main':
@@ -57,15 +57,25 @@ class Cocktail extends Component {
   //       break;
   //   };
 
-  testFunc = (event) => {
+  addAlteration = (event) => {
     event.preventDefault()
-    this.props.cocktail.alterations.unshift(this.state.alteration)
+    let newAlteration = { user: this.props.currentUser.userName, text: this.state.alteration }
+    this.props.cocktail.alterations.unshift(newAlteration)
     this.setState({ alteration: '' })
-    console.log('test', this.props.cocktail)
+    console.log('test', newAlteration)
   }
 
   stashAlteration = (event) => {
     this.setState({ alteration: event.target.value })
+  }
+
+  displayAlterations = () => {
+    return this.props.cocktail.alterations.map(alteration => {
+      return <div>
+          <p>{ alteration.text }</p>
+          <p>— { alteration.user }</p>
+        </div>
+    })
   }
 
 
@@ -92,7 +102,7 @@ class Cocktail extends Component {
             <form>
               <p>Suggest an alteration:</p>
               <input type="text" onChange={ this.stashAlteration } placeholder="(optional)" value={ this.state.alteration }></input>
-              <button onClick={ this.testFunc }>Submit</button>
+              <button onClick={ this.addAlteration }>Submit</button>
             </form>
             <div className="horizontal-cocktail-ingredients">
               { this.horizontalDisplayIngredients() }
@@ -112,7 +122,7 @@ class Cocktail extends Component {
               <p>This is the description</p>
               <p>Show rating in stars?</p>
               <p>Number of times consumed?</p>
-
+              <p>{ this.displayAlterations() }</p>
               {/* { this.leftColumnDisplay() } */}
             </div>
             <div className="cocktail-display--right-column">
