@@ -9,7 +9,8 @@ class Cocktail extends Component {
     super()
 
     this.state = {
-      display: 'main'
+      display: 'main',
+      alteration: ''
     }
   }
 
@@ -56,6 +57,16 @@ class Cocktail extends Component {
   //       break;
   //   };
 
+  testFunc = (event) => {
+    event.preventDefault()
+    console.log('test', event.target.value)
+  }
+
+  stashAlteration = (event) => {
+    console.log('stash', event.target.value)
+    this.setState({ alteration: event.target.value })
+  }
+
 
   rightColumnDisplay = () => {
     switch (this.state.display) {
@@ -79,8 +90,8 @@ class Cocktail extends Component {
             </div>
             <form>
               <p>Suggest an alteration:</p>
-              <textarea>Type Here</textarea>
-              <button>Submit</button>
+              <textarea onChange={ this.stashAlteration } placeholder="(optional)"></textarea>
+              <button onClick={ this.testFunc }>Submit</button>
             </form>
             <div className="horizontal-cocktail-ingredients">
               { this.horizontalDisplayIngredients() }
@@ -98,6 +109,9 @@ class Cocktail extends Component {
               <div className="cocktail-display--left-column">   
               <img src={ this.props.cocktail.glasswareSource } />
               <p>This is the description</p>
+              <p>Show rating in stars?</p>
+              <p>Number of times consumed?</p>
+
               {/* { this.leftColumnDisplay() } */}
             </div>
             <div className="cocktail-display--right-column">
