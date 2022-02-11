@@ -120,7 +120,7 @@ class Cocktail extends Component {
               <div className="cocktail-display--left-column">   
               <img src={ this.props.cocktail.glasswareSource } />
               <p>This is the description</p>
-              <p>Show rating in stars?</p>
+              <p>Average Rating: { this.props.cocktail.averageRating }</p>
               <p>Number of times consumed?</p>
               <p>{ this.displayAlterations() }</p>
               {/* { this.leftColumnDisplay() } */}

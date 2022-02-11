@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CocktailDisplay from '../CocktailDisplay/CocktailDisplay';
-// import Menu from '../Menu/Menu';
 import UserDisplay from '../UserDisplay/UserDisplay';
 import cocktailData from '../../data/cocktailDataSet';
 import userData from '../../data/userDataSet';
@@ -53,11 +52,17 @@ class MainDisplay extends Component {
     } else {
       this.setState({ cocktailDisplay: display })
     }
-    // console.log('test')
   }
 
   rateCocktail = (event) => {
     let rating = parseInt(event.target.id)
+    let cocktail = this.state.cocktail;
+
+    let updatedCocktailRating = ((cocktail.timesPoured * cocktail.averageRating) + rating) / (cocktail.timesPoured + 1);
+    cocktail.timesPoured++
+    cocktail.averageRating = updatedCocktailRating
+
+    this.setState({ cocktail })
 
     if (this.state.currentUser.cocktails.some(cocktail => cocktail.cocktailName === this.state.cocktail.cocktailName)) {
       this.addToExistingUserCocktail(rating)
@@ -97,14 +102,6 @@ class MainDisplay extends Component {
     this.setState({ currentUser })
   }
 
-  testFunc = () => {
-    let test = [1, 2, 3, 4].map(num => {
-      return <p>test</p>
-    })
-
-    return test
-  }
-
   render() {
     let backButton
     
@@ -127,7 +124,6 @@ class MainDisplay extends Component {
         displayUser={ this.displayUser }
         displayDetail={ this.displayDetail } 
         backButton={ this.backButton } />
-      <div>{ this.testFunc() }</div>
       </section>
   }
 }
